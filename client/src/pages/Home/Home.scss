@@ -1,0 +1,386 @@
+/* Home.css */
+
+/* Hero Section */
+.main .hero {
+    background-color: #040402;
+    color: #fff;
+
+    .hero-testimonial {
+        position: relative;
+        padding-top: 24px;
+
+        .portrait {
+            position: relative;
+            background-size: contain;
+            width: 50px;
+            height: 50px;
+            border-radius: 50px;
+        }
+    }
+
+}
+
+/* Testimonial */
+.testimonial {
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+
+        .col {
+            flex: 1;
+            margin: 10px;
+        }
+    }
+
+    background-color: #f6f7fa;
+
+    span h6 {
+        color: grey;
+        font-weight: 300;
+    }
+
+    .portrait {
+        position: relative;
+        background-size: contain;
+        width: 50px;
+        height: 50px;
+        border-radius: 50px;
+    }
+}
+
+/* Services */
+.service-section {
+    /* display: flex;
+    justify-content: space-between;
+    align-items: flex-start;*/
+    padding-left: 50px;
+    padding-right: 50px;
+    padding-top: 100px;
+    padding-bottom: 100px;
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+
+        .col {
+            flex: 1;
+            margin: 10px;
+        }
+    }
+
+    .service-image {
+        flex: 1;
+        padding-right: 50px;
+
+        img {
+            width: 100%;
+
+        }
+    }
+
+    .service-list {
+        flex: 1;
+
+        h1 {
+            margin-top: 0px;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+
+            li {
+                display: flex;
+                align-items: center;
+                margin-bottom: 10px;
+                padding: 10px;
+                cursor: pointer;
+                transition: background-color 0.3s ease;
+
+                &:hover {
+                    background-color: #f0f0f0;
+                }
+
+                .check {
+                    position: relative;
+                    padding-right: 16px;
+                }
+
+                .service-thumbnail {
+                    width: 50px;
+                    height: 50px;
+                    margin-right: 10px;
+                    border-radius: 4px;
+                    object-fit: cover;
+                }
+            }
+        }
+    }
+}
+
+
+
+/* Resources */
+.resources {
+
+
+    .row {
+        display: flex;
+        flex-wrap: wrap;
+
+        .col {
+            flex: 1;
+            margin: 10px;
+
+            img {
+                width: 100%;
+            }
+        }
+    }
+
+    .blog {
+        background-color: #f6f7fa;
+        margin-top: 50px;
+        transition: box-shadow 0.3s ease;
+
+        .blog-preview {
+            position: relative;
+            padding: 50px;
+
+            a {
+                color: #000;
+                text-decoration: none;
+            }
+        }
+
+    }
+
+    .blog:hover {
+        box-shadow: 0 0 40px rgba(0, 0, 0, 0.2);
+        /* Adjust the values as needed */
+    }
+
+
+}
+
+/* Questions Asked */
+.questions {
+    background-color: #f6f7fa;
+
+}
+
+.accordion-container {
+    position: relative;
+    width: 60%;
+    margin: auto;
+}
+
+.accordion-item {
+    position: relative;
+    margin-top: 25px;
+    margin-top: 25px;
+
+    h3 button {
+        font-size: 1.4rem;
+    }
+}
+
+.accordion-header {
+    font-size: 1.4rem;
+}
+
+.accordion-body {
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 24px;
+
+    ul {
+        padding-left: 0;
+        margin: 0;
+
+        li {
+            list-style-type: none;
+            margin-bottom: 16px;
+            color: #000;
+        }
+    }
+}
+
+
+.accordion-arrow {
+    margin-left: auto;
+    /* Pushes the arrow to the right */
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.accordion-collapse.show .accordion-arrow {
+    transform: rotate(180deg);
+    /* Rotates the arrow when the accordion is open */
+}
+
+/* Media Queries */
+
+
+@media only screen and (max-width: 1200px) {
+
+    /* Result, Resources*/
+    .result,
+    .resources {
+        .section {
+            .row {
+                margin: auto;
+
+                .col {
+                    flex: 100%;
+                    max-width: 47%;
+                }
+            }
+        }
+    }
+
+
+
+
+}
+
+@media only screen and (max-width: 992px) {
+
+    /* Services */
+    .service-section {
+        .row {
+            .col {
+                width: 100%;
+                flex: 100%;
+            }
+        }
+    }
+}
+
+@media only screen and (max-width: 768px) {
+
+    /* Testimonial */
+    .testimonial,
+    .result,
+    .resources {
+        .section {
+            .row {
+
+                margin: 0;
+
+                .col {
+                    flex: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    /* Services */
+    .service-section {
+        .row {
+            .col {
+                width: 100%;
+                flex: 100%;
+            }
+        }
+    }
+
+
+    /* Accordion */
+    .accordion-container {
+        position: relative;
+        padding-left: 30px;
+        padding-right: 30px;
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* Testimonial */
+    .testimonial,
+    .result,
+    .resources {
+        .section {
+            .row {
+
+                .col {
+                    flex: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    /* Services */
+    .services {
+        img {
+            width: 100%;
+        }
+
+        .service-content {
+            width: 80%;
+            margin: auto;
+
+            ul li {
+                width: 100%;
+            }
+        }
+    }
+
+    /* Accordion */
+    .accordion-container {
+        position: relative;
+        padding-left: 25px;
+        padding-right: 25px;
+        width: 100%;
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+
+    /* Testimonial */
+    .testimonial,
+    .result,
+    .resources {
+        .section {
+            .row {
+
+                .col {
+                    flex: 100%;
+                    max-width: 100%;
+                }
+            }
+        }
+    }
+
+    /* Services */
+    .services {
+        img {
+            width: 100%;
+        }
+
+        .service-content {
+            width: 100%;
+            margin: auto;
+
+            ul li {
+                width: 100%;
+            }
+        }
+    }
+
+    /* Accordion */
+    .accordion-container {
+        position: relative;
+        padding-left: 25px;
+        padding-right: 25px;
+        width: 100%;
+    }
+
+}

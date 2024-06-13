@@ -1,0 +1,181 @@
+// about.scss
+
+/* Hero */
+.about-content {
+
+    .hero {
+      background-color: #040402;
+      color: #fff;
+  
+      .hero-text {
+        padding-top: 150px;
+  
+        h1 {
+          font-size: 6rem;
+          font-weight: bold;
+        }
+      }
+    }
+  }
+  
+  
+  
+  /* About Section */
+  
+  .about-section {
+    background-color: #f6f7fa;
+  
+    h1{
+      margin-top: 0px;
+    }
+  
+    h2 {
+      font-weight: 300;
+      margin-bottom: 24px;
+    }
+  
+    button{
+      margin-top: 24px;
+      background-color: #1A27C9;
+      padding: 18px 30px;
+      font-weight: 300;
+      border: none;
+      font-size: 1.4rem;
+      color: #fff;
+    }
+  }
+  
+  
+  
+  
+  /** Resources */
+  .about-content{
+    .resources-section {
+      background-color: #f6f7fa;
+    
+      button {
+    
+        width: 100%;
+        margin-top: 24px;
+        background-color: #1A27C9;
+        padding: 18px 30px;
+        font-weight: 300;
+        border: none;
+        font-size: 1.4rem;
+        color: #fff;
+      }
+    
+      h2 {
+        font-weight: 300;
+      }
+    }
+  }
+  
+  
+  @media only screen and (max-width: 1200px) {
+  
+    /* Core Values */
+    .values {
+      .col-lg-7 {
+        width: 100%;
+  
+      }
+  
+      .col-lg-5 {
+        display: none;
+      }
+    }
+  }
+  
+  @media only screen and (max-width: 992px) {
+  
+    /* Work Ethic */
+    .work-ethic {
+      .row {
+        padding-left: 0px;
+  
+      }
+    }
+  
+  }
+  
+  @media only screen and (max-width: 768px) {
+  
+    /* Hero */
+    .About-content {
+      .Hero {
+        .hero-text {
+          padding-top: 100px;
+  
+          h1 {
+            font-size: 5rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  
+    /* Core Values */
+    .values {
+      .col-lg-7 {
+        .row {
+          .col {
+            width: 100%;
+            flex: 100%;
+          }
+        }
+      }
+  
+      .col-lg-5 {
+        img {
+          display: none;
+        }
+      }
+    }
+  
+  
+    /* Differentiator */
+    .scroller-header {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .scroller-buttons {
+      margin-top: 10px;
+    }
+  
+    .scroll-wrapper {
+      padding-left: 20px;
+    }
+  
+    .scroller-column {
+      min-width: 200px;
+    }
+  }
+  
+  @media only screen and (max-width:600px) {
+  
+    /* Hero */
+    .About-content {
+      .Hero {
+        .hero-text {
+          padding-top: 100px;
+  
+          h1 {
+            font-size: 4rem;
+            font-weight: bold;
+          }
+        }
+      }
+    }
+  
+    /* Work Ethic */
+    .work-ethic {
+      .row {
+        .col {
+          width: 100%;
+          flex: 100%;
+        }
+      }
+    }
+  }

@@ -1,0 +1,179 @@
+/* Differentiator */
+.scroller-column {
+    transition: transform 0.3s ease-in-out;
+}
+
+.scroll-wrapper {
+    scroll-behavior: smooth;
+}
+
+.scroller-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    padding-top: 75px;
+    padding-bottom: 75px;
+}
+
+.scroller-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    padding: 0 50px;
+    margin-bottom: 50px;
+}
+
+
+
+.scroller-buttons {
+    display: flex;
+    gap: 10px;
+}
+
+.scroll-wrapper {
+    display: flex;
+    overflow-x: hidden;
+    /* Hide the scrollbar */
+    padding-left: 100px;
+    width: 100%;
+}
+
+.scroller-row {
+    display: flex;
+}
+
+.scroller-column {
+    max-width: 400px;
+    border: none;
+    flex: 0 0 auto;
+    padding: 20px;
+    background-color: #f6f7fa;
+    margin-right: 20px;
+    text-align: center;
+    border-radius: 50px;
+}
+
+.scroll-button {
+    background-color: #1A27C9;
+    color: white;
+    border: none;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/** Core Values */
+
+.core-values-section {
+    display: flex;
+    flex-direction: row;
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.title-column {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.values-column {
+    flex: 1.5;
+    overflow-y: auto; // Make the values column scrollable
+    padding: 20px;
+    background-color: #ffffff; // Background color for the values column
+    height: 80vh; // Set a fixed height for the values column
+}
+
+.values-list {
+    display: flex;
+    flex-direction: column;
+}
+
+.value-item {
+    margin-bottom: 20px;
+}
+
+
+/* Hide the scrollbar */
+.values-column::-webkit-scrollbar {
+    width: 0; // Hide the scrollbar for WebKit browsers
+}
+
+.values-column {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+}
+
+/* Accordion */
+/* Questions Asked */
+.questions {
+    background-color: #f6f7fa;
+
+}
+
+.accordion-container {
+    position: relative;
+    width: 60%;
+    margin: auto;
+}
+
+.accordion-item {
+    position: relative;
+    margin-top: 25px;
+    margin-top: 25px;
+
+    h3 button {
+        font-size: 1.4rem;
+    }
+}
+
+.accordion-header {
+    font-size: 1.4rem;
+}
+
+.accordion-body {
+    position: relative;
+    font-size: 1.4rem;
+    font-weight: 300;
+    margin-top: 24px;
+
+    ul {
+        padding-left: 0;
+        margin: 0;
+
+        li {
+            list-style-type: none;
+            margin-bottom: 16px;
+            color: #000;
+        }
+    }
+}
+
+
+.accordion-arrow {
+    margin-left: auto;
+    /* Pushes the arrow to the right */
+    font-size: 1rem;
+    transition: transform 0.2s ease;
+}
+
+.accordion-collapse.show .accordion-arrow {
+    transform: rotate(180deg);
+    /* Rotates the arrow when the accordion is open */
+}
