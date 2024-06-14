@@ -17,11 +17,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 // AOS Animations
 import AOS from "aos";
 import 'aos/dist/aos.css';
-
-
-
 const Footer = () => {
-
 
     useEffect(() => {
         AOS.init();
@@ -106,8 +102,6 @@ const Footer = () => {
                                 </li>
                             </ul>
                         </div>
-
-
                         <div className="col">
                             <div className="social">
                                 <span>
@@ -119,12 +113,8 @@ const Footer = () => {
                                     </a>
                                 </span>
                             </div>
-
                         </div>
                     </div>
-
-
-
                 </div>
             </section>
             {/** Copyright Section */}
