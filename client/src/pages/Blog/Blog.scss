@@ -1,0 +1,52 @@
+/* Blog.scss */
+
+/* Hero */
+.blog-content .hero {
+
+    .hero-text {
+
+       
+        width: 70%;
+        text-align: center;
+        margin: auto;
+    }
+
+}
+
+/* Article */
+
+.article{
+
+    background-color: #f6f7fa;
+    .section{
+        width: 80%;
+        margin: auto;
+    }
+
+    .article-section{
+        margin-bottom: 24px;
+    }
+}
+
+@media only screen and (max-width:768px){
+
+    /* Hero */
+    .Blog .Hero {
+
+        .hero-text {
+    
+           
+            width: 100%;
+          
+        }
+    
+    }
+
+
+    /* Article */
+    .article{
+        .section{
+            width:100%;
+        }
+    }
+}

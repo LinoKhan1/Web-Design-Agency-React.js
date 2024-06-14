@@ -14,7 +14,7 @@ export default function Post() {
   useEffect(() => {
     async function fetchData() {
       const id = params.id?.toString() || undefined;
-      if(!id) return;
+      if (!id) return;
       setIsNew(false);
       const response = await fetch(
         `http://localhost:5050/post/${params.id.toString()}`
@@ -114,7 +114,7 @@ export default function Post() {
                     name="title"
                     id="title"
                     className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="First Last"
+                    placeholder="Lorem ipsum"
                     value={form.title}
                     onChange={(e) => updateForm({ title: e.target.value })}
                   />
@@ -128,20 +128,20 @@ export default function Post() {
               >
                 Content
               </label>
+
               <div className="mt-2">
                 <div className="flex rounded-md shadow-sm ring-1 ring-inset ring-slate-300 focus-within:ring-2 focus-within:ring-inset focus-within:ring-indigo-600 sm:max-w-md">
-                  <input
-                    type="text"
-                    name="content"
-                    id="content"
-                    className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
-                    placeholder="Developer Advocate"
+                  <textarea name="content" id="content " className="block flex-1 border-0 bg-transparent py-1.5 pl-1 text-slate-900 placeholder:text-slate-400 focus:ring-0 sm:text-sm sm:leading-6"
+                    placeholder="Lorem ipsum"
                     value={form.content}
-                    onChange={(e) => updateForm({ content: e.target.value })}
-                  />
+                    onChange={(e) => updateForm({ content: e.target.value })}>
+
+                  </textarea>
                 </div>
+
               </div>
             </div>
+
             <div className="sm:col-span-4">
               <label
                 htmlFor="author"
