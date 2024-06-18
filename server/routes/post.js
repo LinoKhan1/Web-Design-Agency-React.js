@@ -15,7 +15,7 @@ const router = express.Router();
 
 // Get list of posts 
 router.get("/", async (req, res) => {
-    let collection = await db.collection("posts");
+    let collection =  db.collection("posts");
     let results = await collection.find({}).toArray();
     res.send(results).status(200);
 });
@@ -23,7 +23,7 @@ router.get("/", async (req, res) => {
 
 // Get post by Id 
 router.get("/:id", async (req, res) => {
-    let collection = await db.collection("posts");
+    let collection =  db.collection("posts");
     let query = { _id: new ObjectId(req.params.id) };
     let result = await collection.findOne(query);
 
@@ -39,9 +39,17 @@ router.post("/", async (req, res) => {
             content: req.body.content,
             author: req.body.author,
         };
-        let collection = await db.collection("posts");
-        let result = await collection.insertOne(newDocument);
-        res.send(result).status(204);
+       /* let collection = await db.collection("posts");
+        let result = await collection.insertOne(newDocument);*/
+        const result = await db.collection('posts').insertOne(newDocument);
+       // res.send(result).status(204);
+       const createdPost = {
+        _id:result.insertedId,
+        title:newDocument.title,
+        content: newDocument.content,
+        author: newDocument.author
+       };
+       res.status(201).json(createdPost);
 
     } catch (err) {
         console.error(err);
