@@ -5,7 +5,6 @@ import db from "../db/connection.js";
 
 // Convert the id from string to ObjectId for the _id.
 import { ObjectId } from "mongodb";
-
 // router is an instance of the express router
 // We use it to define our routes
 // The router will be added as a middleware and will take control
@@ -15,20 +14,36 @@ const router = express.Router();
 
 // Get list of posts 
 router.get("/", async (req, res) => {
-    let collection =  db.collection("posts");
+    let collection = db.collection("posts");
     let results = await collection.find({}).toArray();
     res.send(results).status(200);
 });
 
 
 // Get post by Id 
-router.get("/:id", async (req, res) => {
-    let collection =  db.collection("posts");
+/*router.get("/:id", async (req, res) => {
+    let collection = db.collection("posts");
     let query = { _id: new ObjectId(req.params.id) };
     let result = await collection.findOne(query);
 
     if (!result) res.send("Not found").status(404);
     else res.send(result).status(200);
+});*/
+router.get("/:id", async (req, res) => {
+    try {
+        let collection = db.collection("posts");
+        let query = { _id: new ObjectId(req.params.id) };
+        let result = await collection.findOne(query);
+
+        if (!result) {
+            res.status(404).send("Post not found");
+        } else {
+            res.send(result).status(200);
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error fetching post");
+    }
 });
 
 // Create a new post
@@ -39,17 +54,17 @@ router.post("/", async (req, res) => {
             content: req.body.content,
             author: req.body.author,
         };
-       /* let collection = await db.collection("posts");
-        let result = await collection.insertOne(newDocument);*/
+        /* let collection = await db.collection("posts");
+         let result = await collection.insertOne(newDocument);*/
         const result = await db.collection('posts').insertOne(newDocument);
-       // res.send(result).status(204);
-       const createdPost = {
-        _id:result.insertedId,
-        title:newDocument.title,
-        content: newDocument.content,
-        author: newDocument.author
-       };
-       res.status(201).json(createdPost);
+        // res.send(result).status(204);
+        const createdPost = {
+            _id: result.insertedId,
+            title: newDocument.title,
+            content: newDocument.content,
+            author: newDocument.author
+        };
+        res.status(201).json(createdPost);
 
     } catch (err) {
         console.error(err);
@@ -69,7 +84,7 @@ router.patch("/:id", async (req, res) => {
                 author: req.body.author,
             },
         };
-        let collection = await db.collection("posts");
+        let collection = db.collection("posts");
         let result = await collection.updateOne(query, updates);
         res.send(result).status(200);
     } catch (err) {
@@ -79,7 +94,7 @@ router.patch("/:id", async (req, res) => {
 });
 
 // Delete a post
-router.delete("/:id", async (req, res) => {
+/*router.delete("/:id", async (req, res) => {
     try {
         const query = { _id: new ObjectId(req.params.id) };
 
@@ -90,6 +105,23 @@ router.delete("/:id", async (req, res) => {
     } catch (err) {
         console.error(err);
         res.status(500).send("Error deleting post");
+    }
+});*/
+
+router.delete("/:id", async (req, res) => {
+    try {
+        const query = { _id: new ObjectId(req.params.id) };
+        const collection = db.collection("posts");
+        let result = await collection.deleteOne(query);
+
+        if (result.deletedCount === 1) {
+            res.status(200).json({ deletedCount: result.deletedCount });
+        } else {
+            res.status(404).send('Post not found');
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send('Error deleting post');
     }
 });
 
