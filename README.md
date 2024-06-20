@@ -5,6 +5,7 @@ Linokhan.com is a digital product and brand agency website built with React JS, 
 
 ## Prerequisites
 - Node.js (version 21.6.2 or later)
+- MongoDBCompas
 - Docker
 - Docker Compose
 - GitHub account (for CI setup)
@@ -90,13 +91,28 @@ git clone https://github.com/LinoKhan1/linokhan.git
 cd linokhan
 ```
 ### 2. Install Dependencies
+For the client
 ``` sh
+cd client
+npm install
+```
+For the server
+``` sh
+cd ../server
 npm install
 ```
 
 ### 3. Run the Application Locally
+Start the server first then the client
+For the server
 ``` sh
-npm run start
+cd server
+node --env-file=config.env server
+```
+For the client
+``` sh
+cd ../client
+npm run dev
 ```
 
 ### 4. Build and Run with Docker
