@@ -22,9 +22,8 @@ async function connectToMongoDB() {
         console.error(err);
     }
 }
-connectToMongoDB();
-
+//connectToMongoDB();
 
 let db = client.db("blogs");
-
+export { connectToMongoDB };
 export default db;

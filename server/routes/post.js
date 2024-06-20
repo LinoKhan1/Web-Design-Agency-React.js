@@ -21,14 +21,6 @@ router.get("/", async (req, res) => {
 
 
 // Get post by Id 
-/*router.get("/:id", async (req, res) => {
-    let collection = db.collection("posts");
-    let query = { _id: new ObjectId(req.params.id) };
-    let result = await collection.findOne(query);
-
-    if (!result) res.send("Not found").status(404);
-    else res.send(result).status(200);
-});*/
 router.get("/:id", async (req, res) => {
     try {
         let collection = db.collection("posts");
@@ -54,10 +46,8 @@ router.post("/", async (req, res) => {
             content: req.body.content,
             author: req.body.author,
         };
-        /* let collection = await db.collection("posts");
-         let result = await collection.insertOne(newDocument);*/
+
         const result = await db.collection('posts').insertOne(newDocument);
-        // res.send(result).status(204);
         const createdPost = {
             _id: result.insertedId,
             title: newDocument.title,
@@ -93,20 +83,6 @@ router.patch("/:id", async (req, res) => {
     }
 });
 
-// Delete a post
-/*router.delete("/:id", async (req, res) => {
-    try {
-        const query = { _id: new ObjectId(req.params.id) };
-
-        const collection = db.collection("posts");
-        let result = await collection.deleteOne(query);
-
-        res.send(result).status(200);
-    } catch (err) {
-        console.error(err);
-        res.status(500).send("Error deleting post");
-    }
-});*/
 
 router.delete("/:id", async (req, res) => {
     try {
