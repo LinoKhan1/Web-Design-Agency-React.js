@@ -145,6 +145,4 @@ DOCKER_PASSWORD: Your Docker Hub password
 ## Contributing
 Pull requests are welcome. For major changes, please open an issue first to discuss what you would like to change.
 
-## Contact
-If you have any questions, please contact us at linokhan1@gmail.com
 
