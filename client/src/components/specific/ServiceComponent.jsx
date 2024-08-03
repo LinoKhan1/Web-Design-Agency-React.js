@@ -53,7 +53,6 @@ const ServiceComponent = () => {
         <div className="col">
           <div className="service-list" data-testid="service-list">
             <h1>Services that drives sucess!</h1>
-            <p>Explore our comprehensive services tailored to meet your digital needs:</p>
             <ul>
               {services.map(service => (
                 <li key={service.id} onMouseEnter={() => handleMouseEnter(service.image)}>

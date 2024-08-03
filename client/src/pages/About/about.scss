@@ -45,6 +45,35 @@
     }
   }
   
+  /** Core Values */
+  .core-values-section{
+    .value-item {
+      display: flex;
+      align-items: center;
+      margin-bottom: 20px;
+    }
+    
+    .value-icon {
+      margin-right: 10px;
+    }
+    
+    .value-icon i {
+      font-size: 3rem;
+      color: #1A27C9; /* Change to your desired color */
+    }
+    
+    .value-text h2 {
+      margin: 0;
+      font-size: 2rem;
+    }
+    
+    .value-text p {
+      margin: 0;
+      font-size: 1.2rem;
+    }
+    
+
+  }
   
   
   

@@ -53,7 +53,7 @@ const Blog = () => {
                         <div className="hero">
                             <section className="section">
                                 <div className="hero-text">
-                                    <h1 className="display-1"><div dangerouslySetInnerHTML={{ __html: post.title }} />
+                                    <h1><div dangerouslySetInnerHTML={{ __html: post.title }} />
                                     </h1>
                                 </div>
                             </section>

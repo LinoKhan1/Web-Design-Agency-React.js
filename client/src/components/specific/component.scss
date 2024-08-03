@@ -75,6 +75,7 @@
 .core-values-section {
     display: flex;
     flex-direction: row;
+    
 }
 
 .row {
@@ -95,7 +96,7 @@
     overflow-y: auto; // Make the values column scrollable
     padding: 20px;
     background-color: #ffffff; // Background color for the values column
-    height: 80vh; // Set a fixed height for the values column
+    height: 70vh; // Set a fixed height for the values column
 }
 
 .values-list {
@@ -149,7 +150,7 @@
 
 .accordion-body {
     position: relative;
-    font-size: 1.4rem;
+    font-size: 1.3rem;
     font-weight: 300;
     margin-top: 24px;
 

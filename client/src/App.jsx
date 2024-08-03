@@ -14,11 +14,16 @@ import Client from './pages/Contact/PreviousClient.jsx';
 import Blog from './pages/Blog/Blog.jsx';
 import Post from './pages/Blog/Post.jsx';
 import PostList from './pages/Blog/PostList.jsx';
+import Blogs from './pages/Blog/Blogs.jsx';
 
 /* Styles and CSS */
 import './styles/Global/global.scss';
 import './pages/Home/Home.scss';
 import './components/layout/layout.scss';
+
+import "@fontsource/montserrat"; // Defaults to weight 400
+import "@fontsource/montserrat/400.css"; // Specify weight
+import "@fontsource/montserrat/400-italic.css"; // Specify weight and style
 
 function MainRoutes() {
   const location = useLocation();
@@ -37,6 +42,7 @@ function MainRoutes() {
         <Route path="/post-list" element={<PostList />} />
         <Route path="/post/:id" element={<Blog />} />
         <Route path="/edit/:id" element={<Post />} />
+        <Route path="/blog" element={<Blogs/>}/>
         <Route path="/about-us" element={<About />} />
         <Route path="/contact-us" element={<Contact />} />
         <Route path="/get-proposal" element={<GetProposal />} />

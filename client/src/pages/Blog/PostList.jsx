@@ -88,7 +88,7 @@ export default function PostList() {
             <div className="section">
               <div className="hero-text">
                 <h1 className="display-1">
-                  Perspectives on digital and web
+                  Blog
                 </h1>
               </div>
             </div>

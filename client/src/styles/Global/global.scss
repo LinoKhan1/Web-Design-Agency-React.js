@@ -7,7 +7,7 @@
 body,
 html {
 
-    font-family: 'Calibri';
+    font-family: "Montserrat";
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
@@ -31,9 +31,11 @@ html {
 /* Typography.scss */
 
 h1 {
-    font-family: 'Archivo';
+    /*font-family: 'Archivo';
     font-weight: normal;
-    font-style: normal;
+    font-style: normal;*/
+
+    font-family: "Montserrat";
     font-size: 4rem;
     margin-top: 24px;
     margin-bottom: 24px;
@@ -48,15 +50,15 @@ h2 {
 }
 
 h3 {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
 }
 
 span h6 {
-    font-size: 1.3rem;
+    font-size: 1.2rem;
 }
 
 p {
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 300;
     margin-top: 24px;
     margin-bottom: 24px;
@@ -66,7 +68,7 @@ p {
 li {
 
 
-    font-size: 1.4rem;
+    font-size: 1.2rem;
     font-weight: 300;
     color: #0F1825B3;
 
@@ -136,7 +138,7 @@ span .btn-secondary {
         padding: 50px;
 
         label {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 300;
             margin-top: 16px;
             margin-bottom: 16px;
@@ -146,7 +148,7 @@ span .btn-secondary {
         input[type=email] {
             background-color: #f6f7fa;
 
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             width: 100%;
             padding-bottom: 24px;
             font-weight: 300;
@@ -168,7 +170,7 @@ span .btn-secondary {
         }
 
         span {
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 300;
         }
 
@@ -186,7 +188,7 @@ span .btn-secondary {
         textarea {
             background-color: #f6f7fa;
 
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             font-weight: 300;
             padding-bottom: 24px;
             border: none;
