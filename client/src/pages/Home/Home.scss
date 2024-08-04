@@ -5,6 +5,8 @@
     background-color: #040402;
     color: #fff;
 
+    
+
     .hero-testimonial {
         position: relative;
         padding-top: 24px;
@@ -71,7 +73,7 @@
 
     .service-image {
         flex: 1;
-        padding-right: 50px;
+
 
         img {
             width: 100%;
@@ -165,7 +167,7 @@
 }
 
 /* Questions Asked */
-.questions {
+/*.questions {
     background-color: #f6f7fa;
 
 }
@@ -187,8 +189,7 @@
 }
 
 .accordion-header {
-    font-size: 1.4rem;
-}
+    font-size: 1.4rem;}
 
 .accordion-body {
     position: relative;
@@ -211,15 +212,13 @@
 
 .accordion-arrow {
     margin-left: auto;
-    /* Pushes the arrow to the right */
     font-size: 1rem;
     transition: transform 0.2s ease;
 }
 
 .accordion-collapse.show .accordion-arrow {
     transform: rotate(180deg);
-    /* Rotates the arrow when the accordion is open */
-}
+}*/
 
 /* Media Queries */
 

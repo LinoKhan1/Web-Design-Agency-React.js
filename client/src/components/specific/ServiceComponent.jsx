@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { useLocation } from 'react-router-dom';
 import LazyLoad from 'react-lazyload';
 //import PropTypes from 'prop-types';
 
 // Images
-import DesignImage from '../../assets/images/Design.webp';
+import DesignImage from '../../assets/images/service-img2.png';
 import BrandingImage from '../../assets/images/brand_identity.webp';
 import SEOImage from '../../assets/images/search.webp';
 import UXUIImage from '../../assets/images/user_experience.webp';
@@ -38,6 +39,15 @@ const ServiceComponent = () => {
   const handleMouseEnter = (image) => {
     setCurrentImage(image);
   };
+  const {hash} = useLocation();
+  useEffect(()=>{
+    if(hash){
+      const element = document.getElementById(hash.substring(1));
+      if(element){
+        element.scrollIntoView({behavior: 'smooth'});
+      }
+    }
+  },[hash]);
 
   return (
     /** Service Component */
@@ -46,7 +56,7 @@ const ServiceComponent = () => {
         <div className="col">
           <div className="service-image">
             <LazyLoad height={200}>
-              <img src={currentImage} alt="Service of Linokhan" />
+              <img  src={currentImage} alt="Service of Linokhan" />
             </LazyLoad>
           </div>
         </div>

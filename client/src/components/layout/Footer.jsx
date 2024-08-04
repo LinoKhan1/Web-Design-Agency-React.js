@@ -38,7 +38,7 @@ const Footer = () => {
                         Let’s find out if we’re a good fit for each other.
                     </p>
                     <span>
-                        <Link to="/get_proposal">
+                        <Link to="/get-proposal">
                             <button className="btn-primary">Get a proposal</button>
                         </Link>
                         <button onClick={() => document.getElementById('service').scrollIntoView({ behavior: 'smooth' })} className="btn-secondary"> View services</button>
@@ -58,7 +58,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/#services">
+                                    <Link to="/#service">
                                         Services
                                     </Link>
                                 </li>

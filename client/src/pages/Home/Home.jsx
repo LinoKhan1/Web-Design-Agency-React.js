@@ -1,5 +1,5 @@
 // React
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 // React Lazy Load
 import LazyLoad from "react-lazyload";
 // React Helmet
@@ -32,15 +32,78 @@ import ResultComponent from "../../components/specific/ResultComponent.jsx";
 import Profile_img_2 from '../../assets/images/testimonial_img2.webp';
 import Profile_img_3 from '../../assets/images/testimonial_img3.webp';
 import Profile_img_4 from '../../assets/images/testimonial_img4.webp';
-import BlogImage from '../../assets/images/Image.webp';
+import BlogImage from '../../assets/images/service-img2.png';
+
+
+
 
 /* Home Page Component */
+// Utility function to extract the first sentence
+const getFirstSentence = (text) => {
+  const match = text.match(/[^\.!\?]+[\.!\?]+/g);
+  return match ? match[0] : text;
+};
+
+const Post = (props) => (
+  <div className="row">
+    <div className="col-lg-4">
+      <div className="blog">
+
+        <div className="img">
+          <LazyLoad height={200}>
+            <img className="img-fluid" src={BlogImage} alt="SEO Blog" />
+          </LazyLoad>
+        </div>
+        <div className="blog-preview">
+          <Link to={`/post/${props.post._id}`} className="blog-title">
+            <h2>
+              <div dangerouslySetInnerHTML={{ __html: props.post.title }} />
+
+            </h2>
+          </Link>
+          <Link to={`/post/${props.post._id}`}>
+            Read more
+          </Link>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+);
 const Home = () => {
+
+  const [posts, setPosts] = useState([]);
 
   useEffect(() => {
     AOS.init();
-  }, [])
 
+  }, [])
+  useEffect(() => {
+    async function getPosts() {
+      const response = await fetch(`http://localhost:5050/post/`);
+      if (!response.ok) {
+        const message = `An error occurred: ${response.statusText}`;
+        console.error(message);
+        return;
+      }
+      const posts = await response.json();
+      setPosts(posts);
+    }
+    getPosts();
+  }, []);
+
+  // This method will map out the posts in a div layout
+  function postList() {
+    return posts.map((post) => {
+      return (
+        <Post
+          post={post}
+          key={post._id}
+        />
+      );
+    });
+  }
   return (
 
     <div className="home-content">
@@ -56,7 +119,7 @@ const Home = () => {
             <div className="row">
               <div className="col-lg-7">
                 <div className="hero-text">
-                  <h1>Get a beautiful website that drives revenue</h1>
+                  <h1 className="display-1">Get a website that drives revenue</h1>
                   <p>Results-driven web design, development, SEO, brand design, and user experience optimization.</p>
                   <span>
                     <Link to="/get-proposal">
@@ -126,45 +189,25 @@ const Home = () => {
         {/* Results Section */}
         <ResultComponent />
 
+
+        {/** Posts Section */}
+        <div className="posts">
+          <div className="section">
+
+            <div className="row">
+              {postList()}
+            </div>
+          </div>
+        </div>
+
         {/* Resources Section */}
         <div className="resources" data-aos="fade-in">
           <div className="section">
             <div className="title">
               <h1>Helpful resources</h1>
             </div>
-            <div className="row">
-              {[
-                {
-                  title: "Best Practices for SEO: Boosting Your Website Visibility",
-                  link: "/blog",
-                  image: BlogImage
-                },
-                {
-                  title: "Best Practices for SEO: Boosting Your Website Visibility",
-                  link: "/blog",
-                  image: BlogImage
-                },
-                {
-                  title: "Best Practices for SEO: Boosting Your Website Visibility",
-                  link: "/blog",
-                  image: BlogImage
-                }
-              ].map((resource, index) => (
-                <div className="col" key={index}>
-                  <div className="blog">
-                    <div className="img">
-                      <LazyLoad height={200}>
-                        <img className="img-fluid" src={resource.image} alt="SEO Blog" />
-                      </LazyLoad>
-                    </div>
-                    <div className="blog-preview">
-                      <h2>{resource.title}</h2>
-                      <Link to={resource.link}>Read on</Link>
-                    </div>
-                  </div>
-                </div>
-              ))}
-            </div>
+            {postList()}
+
           </div>
         </div>
 
