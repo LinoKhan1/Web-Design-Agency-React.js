@@ -82,7 +82,7 @@ const About = () => {
             <div className="col-lg-6">
               <h1>Best Practices for SEO: Boosting Your Website</h1>
               <p>In the digital age, having a strong online presence is essential for any business or individual looking to reach a wider audience. Search Engine Optimization (SEO) plays a crucial role in enhancing your website visibility and attracting organic traffic.</p>
-              <Link to="/blog">
+              <Link to="/post-list">
                 <button>Read More</button>
               </Link>
             </div>

@@ -32,7 +32,7 @@ import ResultComponent from "../../components/specific/ResultComponent.jsx";
 import Profile_img_2 from '../../assets/images/testimonial_img2.webp';
 import Profile_img_3 from '../../assets/images/testimonial_img3.webp';
 import Profile_img_4 from '../../assets/images/testimonial_img4.webp';
-import BlogImage from '../../assets/images/service-img2.png';
+import BlogImage from '../../assets/images/service-img5.png';
 
 
 
@@ -45,30 +45,33 @@ const getFirstSentence = (text) => {
 };
 
 const Post = (props) => (
-  <div className="row">
-    <div className="col-lg-4">
-      <div className="blog">
 
-        <div className="img">
-          <LazyLoad height={200}>
-            <img className="img-fluid" src={BlogImage} alt="SEO Blog" />
-          </LazyLoad>
-        </div>
-        <div className="blog-preview">
-          <Link to={`/post/${props.post._id}`} className="blog-title">
-            <h2>
+  <div className="col">
+    <div className="blog">
+
+      <div className="img">
+        <LazyLoad height={200}>
+          <img className="img-fluid" src={BlogImage} alt="SEO Blog" />
+        </LazyLoad>
+      </div>
+      <div className="blog-preview">
+        <Link to={`/post/${props.post._id}`} className="blog-title">
+          <h2>
+            <b>
               <div dangerouslySetInnerHTML={{ __html: props.post.title }} />
 
-            </h2>
-          </Link>
-          <Link to={`/post/${props.post._id}`}>
-            Read more
-          </Link>
-        </div>
+            </b>
 
+          </h2>
+        </Link>
+        <Link to={`/post/${props.post._id}`}>
+          Read more
+        </Link>
       </div>
+
     </div>
   </div>
+
 
 );
 const Home = () => {
@@ -189,24 +192,16 @@ const Home = () => {
         {/* Results Section */}
         <ResultComponent />
 
-
-        {/** Posts Section */}
-        <div className="posts">
-          <div className="section">
-
-            <div className="row">
-              {postList()}
-            </div>
-          </div>
-        </div>
-
         {/* Resources Section */}
         <div className="resources" data-aos="fade-in">
           <div className="section">
             <div className="title">
               <h1>Helpful resources</h1>
             </div>
-            {postList()}
+            <div className="row">
+              {postList()}
+
+            </div>
 
           </div>
         </div>

@@ -38,6 +38,26 @@ router.get("/:id", async (req, res) => {
     }
 });
 
+// Get the most recent post
+router.get("/recent", async (req, res) => {
+    try {
+        let collection = db.collection("posts");
+        // Retrieve the most recent post without relying on a specific field like 'date'
+        let result = await collection.find({}).sort({ _id: -1 }).limit(1).toArray();
+
+        if (result.length === 0) {
+            res.status(404).send("No posts found");
+        } else {
+            res.status(200).json(result[0]);
+        }
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error fetching the most recent post");
+    }
+});
+
+
+
 // Create a new post
 router.post("/", async (req, res) => {
     try {

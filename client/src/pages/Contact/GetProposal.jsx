@@ -20,22 +20,9 @@ import './contact.scss';
 import emailjs from '@emailjs/browser';
 
 const Proposal = () => {
-    const [fileError, setFileError] = useState(null);
-
-
-    const handleFileChange = (e) => {
-        const file = e.target.files[0];
-        if (file && file.size > 10 * 1024 * 1024) {
-            setFileError('File size must be less than 10MB');
-        } else {
-            setFileError(null);
-        }
-    };
-
     const form = useRef();
     const sendEmail = (e) => {
         e.preventDefault();
-
         emailjs.sendForm('service_725gn2g', 'template_gkzkq4u', form.current, 'kLCfazak-ocrHLbKy')
             .then((result) => {
                 console.log(result.text);
@@ -43,8 +30,7 @@ const Proposal = () => {
                 alert("Your message has been sent!")
             }, (error) => {
                 console.log(error.text);
-            });
-
+            })
     }
 
     return (
@@ -101,20 +87,9 @@ const Proposal = () => {
 
                             </div>
                             <div className="row">
-                                <label htmlFor="projectFile">Upload project file (optional)</label>
-                                <span>
-                                    <input
-                                        type="file"
-                                        id="projectFile"
-                                        name="projectFile"
-                                        accept=".pdf"
-                                        onChange={handleFileChange}
-                                    />
-                                    Max file size 10MB
-                                </span>
-                                {fileError && <p className="file-error">{fileError}</p>}
+                               
                                 <p>Project Summary</p>
-                                <p>If you already uploaded a file containing all project information, you can type N/A below unless you want to add anything else.</p>
+                                <p>Please provide a summary of your project, detailing how we can assist your business. Include any specific areas where you need support, such as development, implementation, or other services.</p>
                                 <textarea name="message" id="message" placeholder="i.e. page count, functionality, design preferences, timeline, etc..."></textarea>
                                 <input type="submit" value="Submit request" />
                             </div>

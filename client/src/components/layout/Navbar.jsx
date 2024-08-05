@@ -30,7 +30,7 @@ const Navbar = () => {
                                 <Link className="nav-link text-white" to="/about-us" onClick={toggleNav}>About</Link>
                             </li>
                             <li className="nav-item">
-                                <Link className="nav-link text-white" to="/blog" onClick={toggleNav}>Blog</Link>
+                                <Link className="nav-link text-white" to="/post-list" onClick={toggleNav}>Blog</Link>
                             </li>
                             <li className="nav-item">
                                 <Link className="nav-link text-white" to="/contact-us" onClick={toggleNav}>Contact</Link>

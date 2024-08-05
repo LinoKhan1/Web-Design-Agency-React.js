@@ -4,10 +4,10 @@ import LazyLoad from 'react-lazyload';
 //import PropTypes from 'prop-types';
 
 // Images
-import DesignImage from '../../assets/images/service-img2.png';
-import BrandingImage from '../../assets/images/brand_identity.webp';
-import SEOImage from '../../assets/images/search.webp';
-import UXUIImage from '../../assets/images/user_experience.webp';
+import DesignImage from '../../assets/images/service1.png';
+import BrandingImage from '../../assets/images/service2.png';
+import SEOImage from '../../assets/images/service3.png';
+import UXUIImage from '../../assets/images/service4.png';
 
 // AOS Animations
 import AOS from "aos";
@@ -25,10 +25,6 @@ const services = [
   { id: 4, name: 'User Experience and Interface Optimization', image: UXUIImage },
 
 ];
-
-
-
-
 const ServiceComponent = () => {
 
   useEffect(() => {
