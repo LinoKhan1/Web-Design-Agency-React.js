@@ -1,0 +1,28 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+    ports:
+      - "5050:5050" # Map container port 5050 to host port 5050
+    environment:
+      - ATLAS_URI=mongodb+srv://linokhan1:KhanBonda@cluster0.fetzxy5.mongodb.net/
+    depends_on:
+      - mongo
+
+  client:
+    build:
+      context: ./client
+    ports:
+      - "80:80" # Map container port 80 to host port 80
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:

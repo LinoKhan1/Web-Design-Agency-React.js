@@ -17,7 +17,7 @@ import AOS from "aos";
 import 'aos/dist/aos.css';
 
 /* Styles and CSS */
-import '../About/about.scss';
+import './about.scss';
 
 /* About Page Component */
 const About = () => {
