@@ -21,16 +21,18 @@ jobs:
         with:
           node-version: '20'
 
-      - name: Install dependencies
-        run: |
-          cd client
-          npm install
-          cd ../server
-          npm install
+      - name: Install dependencies for server
+        run: npm install
+        working-directory: ./server
 
-      - name: Run tests
-        run: |
-          cd client
-          npm test
-          cd ../server
-          npm test
+      - name: Run server tests
+        run: npm test
+        working-directory: ./server
+
+      - name: Install dependencies for client
+        run: npm install
+        working-directory: ./client
+
+      - name: Run client tests
+        run: npm test -- --passWithNoTests
+        working-directory: ./client
