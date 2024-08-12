@@ -14,28 +14,25 @@ jobs:
 
     steps:
       - name: Checkout code
-        uses: actions/checkout@v2
+        uses: actions/checkout@v3
 
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20'
-
-      - name: Install dependencies for server
-        run: npm install
-        working-directory: ./server
-
-      - name: Fix permissions for Jest
-        run: chmod +x ./node_modules/.bin/jest
-
-      - name: Run server tests
-        run: npm test
-        working-directory: ./server
+          node-version: '20' # Adjust this to your Node.js version
 
       - name: Install dependencies for client
+        working-directory: ./client
         run: npm install
-        working-directory: ./client
 
-      - name: Run client tests
-        run: npm test -- --passWithNoTests
+      - name: Install dependencies for server
+        working-directory: ./server
+        run: npm install
+
+      - name: Run tests for client
         working-directory: ./client
+        run: npm test
+
+      - name: Run tests for server
+        working-directory: ./server
+        run: npm test
