@@ -1,26 +1,39 @@
+/**
+ * @file post.js
+ * @description This module defines API routes for managing blog posts. 
+ * It includes routes to create, read, update, and delete posts using Express.js and MongoDB.
+ */
+
 import express from "express";
-
-// This will help us connect to the database
 import db from "../db/connection.js";
-
-// Convert the id from string to ObjectId for the _id.
 import { ObjectId } from "mongodb";
-// router is an instance of the express router
-// We use it to define our routes
-// The router will be added as a middleware and will take control
-// of the requests starting with path /post.
 
 const router = express.Router();
 
-// Get list of posts 
+/**
+ * @route GET /posts
+ * @description Retrieve a list of all posts
+ * @returns {Array} Array of posts
+ */
 router.get("/", async (req, res) => {
-    let collection = db.collection("posts");
-    let results = await collection.find({}).toArray();
-    res.send(results).status(200);
+    try {
+        let collection = db.collection("posts");
+        let results = await collection.find({}).toArray();
+        res.status(200).send(results);
+    } catch (err) {
+        console.error(err);
+        res.status(500).send("Error fetching posts");
+    }
 });
 
-
-// Get post by Id 
+/**
+ * @route GET /posts/:id
+ * @description Retrieve a single post by ID
+ * @param {string} id - The ID of the post to retrieve
+ * @returns {Object} The post object if found
+ * @throws {404} If post not found
+ * @throws {500} If there is an error fetching the post
+ */
 router.get("/:id", async (req, res) => {
     try {
         let collection = db.collection("posts");
@@ -30,7 +43,7 @@ router.get("/:id", async (req, res) => {
         if (!result) {
             res.status(404).send("Post not found");
         } else {
-            res.send(result).status(200);
+            res.status(200).send(result);
         }
     } catch (err) {
         console.error(err);
@@ -38,27 +51,15 @@ router.get("/:id", async (req, res) => {
     }
 });
 
-// Get the most recent post
-router.get("/recent", async (req, res) => {
-    try {
-        let collection = db.collection("posts");
-        // Retrieve the most recent post without relying on a specific field like 'date'
-        let result = await collection.find({}).sort({ _id: -1 }).limit(1).toArray();
-
-        if (result.length === 0) {
-            res.status(404).send("No posts found");
-        } else {
-            res.status(200).json(result[0]);
-        }
-    } catch (err) {
-        console.error(err);
-        res.status(500).send("Error fetching the most recent post");
-    }
-});
 
 
-
-// Create a new post
+/**
+ * @route POST /posts
+ * @description Create a new post
+ * @body {Object} The post data
+ * @returns {Object} The created post with ID
+ * @throws {500} If there is an error creating the post
+ */
 router.post("/", async (req, res) => {
     try {
         let newDocument = {
@@ -75,15 +76,20 @@ router.post("/", async (req, res) => {
             author: newDocument.author
         };
         res.status(201).json(createdPost);
-
     } catch (err) {
         console.error(err);
         res.status(500).send("Error adding post");
     }
 });
 
-
-// Update a post by id
+/**
+ * @route PATCH /posts/:id
+ * @description Update an existing post by ID
+ * @param {string} id - The ID of the post to update
+ * @body {Object} The updated post data
+ * @returns {Object} The update result
+ * @throws {500} If there is an error updating the post
+ */
 router.patch("/:id", async (req, res) => {
     try {
         const query = { _id: new ObjectId(req.params.id) };
@@ -96,14 +102,21 @@ router.patch("/:id", async (req, res) => {
         };
         let collection = db.collection("posts");
         let result = await collection.updateOne(query, updates);
-        res.send(result).status(200);
+        res.status(200).send(result);
     } catch (err) {
         console.error(err);
         res.status(500).send("Error updating post");
     }
 });
 
-
+/**
+ * @route DELETE /posts/:id
+ * @description Delete a post by ID
+ * @param {string} id - The ID of the post to delete
+ * @returns {Object} The result of the deletion operation
+ * @throws {404} If post not found
+ * @throws {500} If there is an error deleting the post
+ */
 router.delete("/:id", async (req, res) => {
     try {
         const query = { _id: new ObjectId(req.params.id) };

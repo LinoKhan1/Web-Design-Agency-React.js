@@ -1,5 +1,10 @@
+// React
 import React, { useEffect } from 'react';
+
+// Styles & CSS
 import './component.scss';
+
+// Data AOS
 import AOS from "aos";
 import 'aos/dist/aos.css';
 
@@ -20,6 +25,7 @@ const CoreValuesComponent = () => {
     }, []);
 
     return (
+        /* Core Values Component */
         <div className="core-values-section" data-aos="fade-up">
             <section className="section">
                 <div className="row">

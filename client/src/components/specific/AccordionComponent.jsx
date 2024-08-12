@@ -1,3 +1,4 @@
+// React
 import React, { useState } from 'react';
 //import PropTypes from 'prop-types';
 
@@ -40,6 +41,7 @@ const AccordionComponent = () => {
   ];
 
   return (
+    /* Accordion Component*/
     <div id="accordion" className="accordion-container">
       {accordionData.map((item) => (
         <div className="accordion-item" key={item.id}>

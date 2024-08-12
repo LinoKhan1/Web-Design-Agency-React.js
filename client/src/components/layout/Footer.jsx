@@ -23,7 +23,7 @@ const Footer = () => {
         AOS.init();
     }, [])
     return (
-        /* Footer Section */
+        /* Footer Component */
         <footer className="footer">
             <section className="section" data-aos="fade-up">
                 {/** Contact Section */}

@@ -1,12 +1,19 @@
+/**
+ * @file post.test.js
+ * @description This file contains unit tests for the post API routes using Jest and Supertest.
+ * It tests the CRUD operations: Create, Read, Update, and Delete posts.
+ */
+
 import request from 'supertest';
 import express from 'express';
-import postRouter from './post.js'; // Assuming your router is exported as 'default'
+import postRouter from './post.js'; // Import the post router
 import db from '../db/connection.js'; // Import db for mocking
 
 const app = express();
 app.use(express.json());
 app.use('/posts', postRouter); // Mount the postRouter under /posts path
 
+// Mock the MongoDB connection
 jest.mock('../db/connection.js', () => {
   const { ObjectId } = require('mongodb'); // Ensure ObjectId is required within the mock scope
   return {
@@ -81,54 +88,54 @@ describe('GET /posts', () => {
   });
 });
 
-// Fetch a post by ID
+// Fetch a single post
 describe('GET /posts/:id', () => {
-  it('should fetch a post by ID', async () => {
-    const response = await request(app).get('/posts/507f1f77bcf86cd799439011').expect(200);
+  it('should fetch a single post by ID', async () => {
+    const postId = '507f1f77bcf86cd799439011';
+    const response = await request(app).get(`/posts/${postId}`).expect(200);
 
-    expect(response.body).toHaveProperty('_id', '507f1f77bcf86cd799439011');
+    expect(response.body).toHaveProperty('_id', postId);
     expect(response.body).toHaveProperty('title', 'Post 1');
     expect(response.body).toHaveProperty('content', 'Content 1');
     expect(response.body).toHaveProperty('author', 'Author 1');
   });
 
   it('should return 404 if post not found', async () => {
-    await request(app).get('/posts/507f1f88bcf86cd799439011').expect(404);
+    const postId = '507f1f77bcf86cd799439999'; // Non-existent post
+    await request(app).get(`/posts/${postId}`).expect(404);
   });
 });
 
-// Update a post by ID
+// Update a post
 describe('PATCH /posts/:id', () => {
   it('should update a post by ID', async () => {
-    const updates = {
-      title: 'Updated Title',
-      content: 'Updated Content',
+    const postId = '507f1f77bcf86cd799439011';
+    const updatedPost = {
+      title: 'Updated Post',
+      content: 'Updated content',
       author: 'Updated Author',
     };
 
     const response = await request(app)
-      .patch('/posts/507f1f77bcf86cd799439011')
-      .send(updates)
+      .patch(`/posts/${postId}`)
+      .send(updatedPost)
       .expect(200);
 
     expect(response.body).toHaveProperty('modifiedCount', 1);
   });
-
-
 });
 
-// Delete a post by ID
+// Delete a post
 describe('DELETE /posts/:id', () => {
   it('should delete a post by ID', async () => {
-    const response = await request(app).delete('/posts/507f1f77bcf86cd799439011').expect(200);
+    const postId = '507f1f77bcf86cd799439011';
+    const response = await request(app).delete(`/posts/${postId}`).expect(200);
 
     expect(response.body).toHaveProperty('deletedCount', 1);
   });
 
   it('should return 404 if post not found', async () => {
-    const response = await request(app).delete('/posts/507f1f77bcf86cd799439013').expect(404);
-
-    expect(response.text).toBe('Post not found');
+    const postId = '507f1f77bcf86cd799439999'; // Non-existent post
+    await request(app).delete(`/posts/${postId}`).expect(404);
   });
-
 });

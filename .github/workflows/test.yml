@@ -19,7 +19,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '20' # Adjust this to your Node.js version
+          node-version: '20'
 
       - name: Install dependencies for client
         working-directory: ./client
@@ -31,7 +31,7 @@ jobs:
 
       - name: Ensure Jest is executable
         run: chmod +x ./server/node_modules/.bin/jest
-        
+
       - name: Run tests for client
         working-directory: ./client
         run: npm test -- --passWithNoTests

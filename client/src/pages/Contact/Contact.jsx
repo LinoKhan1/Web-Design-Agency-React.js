@@ -1,9 +1,14 @@
+// React
 import React from "react";
 import { Helmet } from "react-helmet";
 import LazyLoad from "react-lazyload";
-import Logo from '../../assets/images/Logo-white.webp';
-import './contact.scss';
 import { Link } from "react-router-dom";
+
+// Images
+import Logo from '../../assets/images/Logo-white.webp';
+
+// Styles & CSS
+import './contact.scss';
 const Contact = () => {
     return (
         /* Contact Page */

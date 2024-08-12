@@ -1,6 +1,11 @@
+/* component.scss*/
+
 /* Differentiator */
 .scroller-column {
     transition: transform 0.3s ease-in-out;
+    h2{
+        font-family: 'Calibri';
+    }
 }
 
 .scroll-wrapper {
@@ -145,17 +150,18 @@
     margin-top: 25px;
 
     h3 button {
-        font-size: 1.4rem;
+        font-size: 1.6rem;
     }
 }
 
 .accordion-header {
-    font-size: 1.4rem;
+    font-family: 'Calibri';
+    font-size: 1.6rem;
 }
 
 .accordion-body {
     position: relative;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 300;
     margin-top: 24px;
 

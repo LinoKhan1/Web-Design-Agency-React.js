@@ -1,5 +1,8 @@
+// React
 import React from 'react';
 import LazyLoad from 'react-lazyload';
+
+// PropTypes
 import PropTypes from 'prop-types';
 
 const AuthorInfoComponent = ({ name, imageSrc }) => {

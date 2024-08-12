@@ -1,6 +1,11 @@
+// React
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
+
+// Images
 import Logo from "../../assets/images/Logo-black.webp";
+
+// Icons 
 import '@fortawesome/fontawesome-free/css/all.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faRocket } from "@fortawesome/free-solid-svg-icons";
@@ -14,6 +19,7 @@ const Navbar = () => {
     };
 
     return (
+        /* Navbar Component */
         <>
             <nav className="navbar navbar-expand-lg">
                 <div className="container-fluid">

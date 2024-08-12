@@ -1,4 +1,7 @@
+// React
 import React, { useRef, useEffect } from 'react';
+
+// Styles & CSS
 import './component.scss';
 
 // AOS Animations
