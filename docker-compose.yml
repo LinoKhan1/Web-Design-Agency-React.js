@@ -6,8 +6,8 @@ services:
       context: ./server
     ports:
       - "5050:5050" # Map container port 5050 to host port 5050
-    environment:
-      - ATLAS_URI=mongodb+srv://linokhan1:KhanBonda@cluster0.fetzxy5.mongodb.net/
+    env_file:
+      - config.env
     depends_on:
       - mongo
 

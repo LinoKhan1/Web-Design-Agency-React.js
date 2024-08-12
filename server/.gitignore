@@ -1,0 +1,33 @@
+# Node.js specific
+node_modules/
+npm-debug.log
+yarn-error.log
+.env
+config.env
+package-lock.json
+yarn.lock
+
+# Logs
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Directory for local test run output
+coverage/
+*.lcov
+
+# OS-specific
+.DS_Store
+Thumbs.db
+
+# Docker specific
+docker-compose.override.yml
+docker-compose.local.yml
+
+# Other
+*.swp
+*.swo
