@@ -29,6 +29,9 @@ jobs:
         working-directory: ./server
         run: npm install
 
+      - name: Ensure Jest is executable
+        run: chmod +x ./server/node_modules/.bin/jest
+        
       - name: Run tests for client
         working-directory: ./client
         run: npm test -- --passWithNoTests
