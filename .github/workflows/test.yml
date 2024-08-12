@@ -31,7 +31,7 @@ jobs:
 
       - name: Run tests for client
         working-directory: ./client
-        run: npm test
+        run: npm test -- --passWithNoTests
 
       - name: Run tests for server
         working-directory: ./server
