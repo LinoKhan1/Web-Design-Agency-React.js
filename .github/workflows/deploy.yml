@@ -27,8 +27,8 @@ jobs:
 
       - name: Pull Docker images
         run: |
-          docker pull my-client:latest
-          docker pull my-server:latest
+          docker pull linokhan/my-client:latest
+          docker pull linokhan/my-server:latest
 
       - name: Trigger Server Deployment on Render
         env:
