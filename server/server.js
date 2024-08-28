@@ -26,7 +26,7 @@ app.use(cors());
  */
 app.use(express.json());
 
-// Define routes
+// Define route
 /**
  * @description Use the posts router for handling routes under /post
  * Routes for managing posts are defined in the posts router.
