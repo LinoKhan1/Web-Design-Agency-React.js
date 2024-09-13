@@ -39,7 +39,7 @@ const About = () => {
           <div className="row">
             <div className="col-lg-7">
               <div className="hero-text">
-                <h1>About Linokhan</h1>
+                <h1 className="display-1">About Linokhan</h1>
                 <p>Linokhan.com is a dynamic web design and development agency located in the vibrant city of Cape Town, South Africa. Established in 2023, our agency has quickly emerged as a trusted partner for businesses seeking to establish a formidable online presence and drive tangible returns on their digital investments.</p>
               </div>
             </div>
@@ -48,13 +48,13 @@ const About = () => {
       </div>
 
       {/* About Section */}
-      <div className="about-section" data-aos="fade-up">
+      <div className="about-section" >
         <section className="section">
           <div className="row">
-            <div className="col-lg-5">
+            <div className="col-lg-4">
               <h1>Web Design and Development</h1>
             </div>
-            <div className="col-lg-6">
+            <div className="col-lg-7">
               <h2>Linokhan.com is a Full-Service Web Development and Brand Design Agency.</h2>
               <p>We are a dedicated team offering a comprehensive approach to brand strategy, web design, development, and SEO. Our team chooses to work with brands that excite and inspire. Together, we are working to grow forward-thinking, relevant brands.</p>
               <p>Our mission at Linokhan.com is clear: to empower our clients by establishing their online presence and solving their problems through innovative marketing and design services, ultimately generating a measurable return on investment.</p>
@@ -73,7 +73,7 @@ const About = () => {
       <DifferentiatorComponent />
 
       {/* Resources Section */}
-      <div className="resources-section" data-aos="fade-up">
+      <div className="resources-section">
         <section className="section">
           <div className="row">
             <div className="col-lg-5">

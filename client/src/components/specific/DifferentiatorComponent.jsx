@@ -27,7 +27,7 @@ const DifferentiatorComponent = () => {
     return (
 
 
-        <div className="scroller-container" data-aos="fade-up">
+        <div className="scroller-container" >
             <div className="scroller-header">
                 <h1>
                     Our Differentiators

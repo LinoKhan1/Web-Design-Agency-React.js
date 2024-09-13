@@ -61,6 +61,70 @@
     font-weight: normal;
     font-style: normal;
 }
+/* ES-Klarheit font family */
+@font-face {
+    font-family: 'ES-Klarheit Bold';
+    src: url('../../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-Bd-TRIAL-BF6618a70049644.otf');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ES-Klarheit Bold-Italic';
+    src: url('../../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-BdIt-TRIAL-BF6618a6ffc9a89.otf');
+    font-weight: bold;
+    font-style: italic;
+}
+@font-face {
+    font-family: 'ES-Klarheit';
+    src: url('../../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-Bk-TRIAL-BF6618a7002ae42.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit';
+    src: url('../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-BkIt-TRIAL-BF6618a6fff28dd.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit';
+    src: url('../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-It-TRIAL-BF6618a6ffd952a.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit';
+    src: url('../assets//fonts/es-klarheit-font-family/ESKlarheitGrotesk-Lt-TRIAL-BF6618a6fe6132f.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit';
+    src: url('../assets//fonts/es-klarheit-font-family/ESKlarheitGrotesk-LtIt-TRIAL-BF6618a6ffd72fb.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit Medium';
+    src: url('../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-Md-TRIAL-BF6618a7001a5a8.otf');
+    font-style: normal;
+}
+@font-face {
+    font-family: 'ES-Klarheit Medium-Italic';
+    src: url('../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-MdIt-TRIAL-BF6618a6ffe6935.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit Regular';
+    src: url('../../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-Rg-TRIAL-BF6618a7002c70f.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit';
+    src: url('../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-Smbd-TRIAL-BF6618a70009538.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit';
+    src: url('../assets/fonts/es-klarheit-font-family/ESKlarheitGrotesk-SmbdIt-TRIAL-BF6618a6ffe805d.otf');
+}
+@font-face {
+    font-family: 'ES-Klarheit Light-Italic';
+    src: url('../assets//fonts/es-klarheit-font-family/ESKlarheitGrotesk-LtIt-TRIAL-BF6618a6ffd72fb.otf');
+}
+
+@font-face {
+    font-family: "PPTelegraf-Regular";
+    src: url('../../assets//fonts/PP_Telegraf/PP_Telegraf/PPTelegraf-Regular.otf');
+}
+
 
 
 

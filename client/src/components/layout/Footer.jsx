@@ -25,12 +25,10 @@ const Footer = () => {
     return (
         /* Footer Component */
         <footer className="footer">
-            <section className="section" data-aos="fade-up">
+            <section className="section">
                 {/** Contact Section */}
                 <div className="contact">
-                    <LazyLoad height={200}>
-                        <img src={Logo} alt="Logo of Linokhan" />
-                    </LazyLoad>
+                    
 
 
                     <h1>As your partner, we treat your website like it is our own</h1>
@@ -58,7 +56,7 @@ const Footer = () => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <Link to="/#service">
+                                    <Link className="link" to="/#service">
                                         Services
                                     </Link>
                                 </li>
@@ -140,7 +138,6 @@ const Footer = () => {
                 </div>
             </div>
         </footer>
-
     );
 }
 export default Footer;

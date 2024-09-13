@@ -25,7 +25,7 @@ const ResultComponent = () => {
 
     return (
         /* Result Component */
-        <div className="scroller-container" data-aos="fade-up">
+        <div className="scroller-container" >
             <div className="scroller-header">
                 <h1>Our Proven Results</h1>
                 <div className="scroller-buttons">

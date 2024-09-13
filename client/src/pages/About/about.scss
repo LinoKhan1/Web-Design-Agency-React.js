@@ -10,10 +10,17 @@
       .hero-text {
         padding-top: 150px;
   
-        h1 {
-          font-size: 6rem;
-          font-weight: bold;
-        }
+       
+      }
+    }
+
+    .scroller-container{
+      background-color: #FECD3C;
+      color: #040402;
+
+      .scroll-button{
+        background-color: #040402;
+        color: #fff;
       }
     }
   }
@@ -23,7 +30,10 @@
   /* About Section */
   
   .about-section {
-    background-color: #f6f7fa;
+    padding-top: 75px;
+    padding-bottom: 75px;
+
+   
   
     h1{
       margin-top: 0px;
@@ -36,17 +46,18 @@
   
     button{
       margin-top: 24px;
-      background-color: #1A27C9;
+      background-color:#FECD3C;
+      width: 100%;
       padding: 18px 30px;
       font-weight: 300;
       border: none;
       font-size: 1.4rem;
-      color: #fff;
     }
   }
   
   /** Core Values */
   .core-values-section{
+    background-color: #FECD3C;
     .value-item {
       display: flex;
       align-items: center;
@@ -59,7 +70,7 @@
     
     .value-icon i {
       font-size: 3rem;
-      color: #1A27C9; /* Change to your desired color */
+      color: #040402 /* Change to your desired color */
     }
     
     .value-text h2 {
@@ -87,12 +98,12 @@
     
         width: 100%;
         margin-top: 24px;
-        background-color: #1A27C9;
+        background-color: #FECD3C;
         padding: 18px 30px;
         font-weight: 300;
         border: none;
         font-size: 1.4rem;
-        color: #fff;
+        color: #040402;
       }
     
       h2 {

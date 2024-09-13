@@ -26,7 +26,7 @@ const CoreValuesComponent = () => {
 
     return (
         /* Core Values Component */
-        <div className="core-values-section" data-aos="fade-up">
+        <div className="core-values-section">
             <section className="section">
                 <div className="row">
                     <div className="col title-column">

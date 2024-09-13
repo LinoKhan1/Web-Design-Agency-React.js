@@ -36,30 +36,36 @@ const ServiceComponent = () => {
   const handleMouseEnter = (image) => {
     setCurrentImage(image);
   };
-  const {hash} = useLocation();
-  useEffect(()=>{
-    if(hash){
+  const { hash } = useLocation();
+  useEffect(() => {
+    if (hash) {
       const element = document.getElementById(hash.substring(1));
-      if(element){
-        element.scrollIntoView({behavior: 'smooth'});
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' });
       }
     }
-  },[hash]);
+  }, [hash]);
 
   return (
     /** Service Component */
-    <section className="service-section" id="service" data-testid="service-component" data-aos="fade-up">
+    <section className="service-section" id="service" data-testid="service-component" >
+      <div className="row">
+        <div className="title">
+          <h1>Services that drives sucess!</h1>
+
+        </div>
+      </div>
       <div className="row">
         <div className="col">
           <div className="service-image">
             <LazyLoad height={200}>
-              <img  src={currentImage} alt="Service of Linokhan" />
+              <img src={currentImage} alt="Service of Linokhan" />
             </LazyLoad>
           </div>
         </div>
         <div className="col">
           <div className="service-list" data-testid="service-list">
-            <h1>Services that drives sucess!</h1>
+            <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Alias voluptates iste quibusdam iusto consequuntur et, quisquam aliquid beatae optio amet corporis eius ad. </p>
             <ul>
               {services.map(service => (
                 <li key={service.id} onMouseEnter={() => handleMouseEnter(service.image)}>

@@ -122,8 +122,10 @@ const Home = () => {
             <div className="row">
               <div className="col-lg-7">
                 <div className="hero-text">
-                  <h1 className="display-1">Get a website that drives revenue</h1>
-                  <p>Results-driven web design, development, SEO, brand design, and user experience optimization.</p>
+                  <h1 className="display-1">
+                    Intelligence. Transparency. Reliability.
+                  </h1>                  
+                  <p>Results-driven web design, custom development, SEO, brand and identity design.</p>
                   <span>
                     <Link to="/get-proposal">
                       <button className="btn-primary">
@@ -152,7 +154,7 @@ const Home = () => {
         </div>
 
         {/* Testimonials Section */}
-        <div className="testimonial" data-aos="fade-in">
+        <div className="testimonial" >
           <div className="section">
             <div className="row">
               {[
@@ -193,7 +195,7 @@ const Home = () => {
         <ResultComponent />
 
         {/* Resources Section */}
-        <div className="resources" data-aos="fade-in">
+        <div className="resources">
           <div className="section">
             <div className="title">
               <h1>Helpful resources</h1>
@@ -208,7 +210,7 @@ const Home = () => {
 
 
         {/* Questions Section */}
-        <div className="questions" data-aos="fade-up">
+        <div className="questions">
           <div className="section">
             <div className="row">
               <div className="title">

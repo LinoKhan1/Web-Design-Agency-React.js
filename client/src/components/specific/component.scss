@@ -13,6 +13,7 @@
 }
 
 .scroller-container {
+    background-color: #040402;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -20,6 +21,7 @@
     position: relative;
     padding-top: 75px;
     padding-bottom: 75px;
+    color: #ffffff;
 }
 
 .scroller-header {
@@ -55,15 +57,13 @@
     border: none;
     flex: 0 0 auto;
     padding: 20px;
-    background-color: #f6f7fa;
     margin-right: 20px;
     text-align: center;
-    border-radius: 50px;
 }
 
 .scroll-button {
-    background-color: #1A27C9;
-    color: white;
+    background-color: #FECD3C;
+    color: #040402;
     border: none;
     padding: 10px;
     width: 50px;
@@ -100,7 +100,6 @@
     flex: 1.5;
     overflow-y: auto; // Make the values column scrollable
     padding: 20px;
-    background-color: #ffffff; // Background color for the values column
     height: 70vh; // Set a fixed height for the values column
 }
 
@@ -134,7 +133,7 @@
 /* Accordion */
 /* Questions Asked */
 .questions {
-    background-color: #f6f7fa;
+    background-color: #FECD3C;;
 
 }
 
@@ -155,7 +154,6 @@
 }
 
 .accordion-header {
-    font-family: 'Calibri';
     font-size: 1.6rem;
 }
 
