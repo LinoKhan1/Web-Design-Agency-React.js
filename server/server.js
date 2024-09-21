@@ -9,6 +9,11 @@
 import express from "express";
 import cors from "cors";
 import posts from "./routes/post.js"; // Import the posts router
+// Allow requests from your frontend's deployed URL
+const allowedOrigins = [
+    'http://localhost:5173',  // for development
+    'https://your-frontend-url.onrender.com'  // for production
+  ];
 
 const PORT = process.env.PORT || 5050; // Define the port to listen on, defaulting to 5050
 const app = express();
@@ -18,8 +23,15 @@ const app = express();
  * @description Enable Cross-Origin Resource Sharing (CORS)
  * Allows requests from other origins to access resources on this server.
  */
-app.use(cors());
-
+app.use(cors({
+    origin: function (origin, callback) {
+      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
+        callback(null, true);
+      } else {
+        callback(new Error('Not allowed by CORS'));
+      }
+    }
+  }));
 /**
  * @description Parse incoming JSON requests
  * This middleware parses JSON payloads in the request body.

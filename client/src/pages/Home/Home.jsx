@@ -82,9 +82,10 @@ const Home = () => {
     AOS.init();
 
   }, [])
+  const apiUrl = import.meta.env.VITE_API_BASE_URL;
   useEffect(() => {
     async function getPosts() {
-      const response = await fetch(`http://localhost:5050/post/`);
+      const response = await fetch(`${apiUrl}/post`);
       if (!response.ok) {
         const message = `An error occurred: ${response.statusText}`;
         console.error(message);
