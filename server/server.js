@@ -23,15 +23,8 @@ const app = express();
  * @description Enable Cross-Origin Resource Sharing (CORS)
  * Allows requests from other origins to access resources on this server.
  */
-app.use(cors({
-    origin: function (origin, callback) {
-      if (allowedOrigins.indexOf(origin) !== -1 || !origin) {
-        callback(null, true);
-      } else {
-        callback(new Error('Not allowed by CORS'));
-      }
-    }
-  }));
+app.use(cors()); // Temporarily allow all origins
+
 /**
  * @description Parse incoming JSON requests
  * This middleware parses JSON payloads in the request body.
