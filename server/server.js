@@ -12,7 +12,7 @@ import posts from "./routes/post.js"; // Import the posts router
 // Allow requests from your frontend's deployed URL
 const allowedOrigins = [
     'http://localhost:5173',  // for development
-    'https://your-frontend-url.onrender.com'  // for production
+    'https://linokhan-client.onrender.com/'  // for production
   ];
 
 const PORT = process.env.PORT || 5050; // Define the port to listen on, defaulting to 5050
