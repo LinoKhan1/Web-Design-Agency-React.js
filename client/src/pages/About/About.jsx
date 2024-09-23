@@ -16,7 +16,6 @@ import About_img1 from "../../assets/images/team2.webp";
 import Footer from "../../components/layout/Footer.jsx";
 import DifferentiatorComponent from "../../components/specific/DifferentiatorComponent.jsx";
 import CoreValuesComponent from "../../components/specific/CoreValuesComponent.jsx";
-import ResourcesComponent from "../../components/specific/ResourcesComponent.jsx";
 import Posts from "../../components/specific/Posts.jsx";
 
 // AOS Animations
