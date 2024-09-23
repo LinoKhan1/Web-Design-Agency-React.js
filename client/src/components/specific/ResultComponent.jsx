@@ -27,7 +27,7 @@ const ResultComponent = () => {
         /* Result Component */
         <div className="scroller-container" >
             <div className="scroller-header">
-                <h1>Our Proven Results</h1>
+                <h1 className='display-1'>Our Proven Results</h1>
                 <div className="scroller-buttons">
                     <button className="scroll-button" onClick={scrollLeft}>‹</button>
                     <button className="scroll-button" onClick={scrollRight}>›</button>

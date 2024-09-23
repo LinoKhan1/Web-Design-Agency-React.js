@@ -1,11 +1,27 @@
-/* component.scss*/
+// component.scss
 
-/* Differentiator */
+// Variables
+$primary-bg-color: #040402;
+$secondary-bg-color: #FECD3C;
+$primary-text-color: #ffffff;
+$button-bg-color: $secondary-bg-color;
+$scrollbar-width: 0;
+$accordion-width-large: 60%;
+$accordion-width-medium: 80%;
+$accordion-width-small: 100%;
+$padding-large: 75px;
+$padding-small: 20px;
+$margin-auto: auto;
+$font-primary: "PPTelegraf-Regular";
+
+
+// Differentiator
 .scroller-column {
     transition: transform 0.3s ease-in-out;
     h2{
-        font-family: 'Calibri';
+        font-family: $font-primary;
     }
+   
 }
 
 .scroll-wrapper {
@@ -13,15 +29,15 @@
 }
 
 .scroller-container {
-    background-color: #040402;
+    background-color: $primary-bg-color;
     display: flex;
     flex-direction: column;
     align-items: center;
     overflow: hidden;
     position: relative;
-    padding-top: 75px;
-    padding-bottom: 75px;
-    color: #ffffff;
+    padding-top: $padding-large;
+    padding-bottom: $padding-large;
+    color: $primary-text-color;
 }
 
 .scroller-header {
@@ -33,8 +49,6 @@
     margin-bottom: 50px;
 }
 
-
-
 .scroller-buttons {
     display: flex;
     gap: 10px;
@@ -43,7 +57,6 @@
 .scroll-wrapper {
     display: flex;
     overflow-x: hidden;
-    /* Hide the scrollbar */
     padding-left: 100px;
     width: 100%;
 }
@@ -56,14 +69,14 @@
     max-width: 400px;
     border: none;
     flex: 0 0 auto;
-    padding: 20px;
+    padding: $padding-small;
     margin-right: 20px;
     text-align: center;
 }
 
 .scroll-button {
-    background-color: #FECD3C;
-    color: #040402;
+    background-color: $button-bg-color;
+    color: $primary-bg-color;
     border: none;
     padding: 10px;
     width: 50px;
@@ -76,11 +89,9 @@
 }
 
 /** Core Values */
-
 .core-values-section {
     display: flex;
     flex-direction: row;
-    
 }
 
 .row {
@@ -93,13 +104,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 20px;
+    padding: $padding-small;
 }
 
 .values-column {
     flex: 1.5;
     overflow-y: auto; // Make the values column scrollable
-    padding: 20px;
+    padding: $padding-small;
     height: 70vh; // Set a fixed height for the values column
 }
 
@@ -110,42 +121,38 @@
 
 .value-item {
     margin-bottom: 20px;
-    .value-text{
-        p{
+    
+    .value-text {
+        p {
             width: 80%;
         }
     }
 }
 
-
 /* Hide the scrollbar */
 .values-column::-webkit-scrollbar {
-    width: 0; // Hide the scrollbar for WebKit browsers
+    width: $scrollbar-width; // Hide the scrollbar for WebKit browsers
 }
 
 .values-column {
-    -ms-overflow-style: none;
-    /* IE and Edge */
-    scrollbar-width: none;
-    /* Firefox */
+    -ms-overflow-style: none; // IE and Edge
+    scrollbar-width: none; // Firefox
 }
 
 /* Accordion */
 /* Questions Asked */
 .questions {
-    background-color: #FECD3C;;
-
+    background-color: $secondary-bg-color;
 }
 
 .accordion-container {
     position: relative;
-    width: 60%;
-    margin: auto;
+    width: $accordion-width-large;
+    margin: $margin-auto;
 }
 
 .accordion-item {
     position: relative;
-    margin-top: 25px;
     margin-top: 25px;
 
     h3 button {
@@ -175,58 +182,45 @@
     }
 }
 
-
 .accordion-arrow {
-    margin-left: auto;
-    /* Pushes the arrow to the right */
+    margin-left: auto; // Pushes the arrow to the right
     font-size: 1rem;
     transition: transform 0.2s ease;
 }
 
 .accordion-collapse.show .accordion-arrow {
-    transform: rotate(180deg);
-    /* Rotates the arrow when the accordion is open */
+    transform: rotate(180deg); // Rotates the arrow when the accordion is open
 }
 
-@media only screen and (max-width: 1200px){
-
-    .accordion-container{
-        position: relative;
-        width: 80%;
-        margin: auto;
+// Media Queries
+@media only screen and (max-width: 1200px) {
+    .accordion-container {
+        width: $accordion-width-medium;
     }
 }
 
-@media only screen and (max-width: 992px){
-
-
-    .accordion-container{
-        position: relative;
-        width: 80%;
-        margin: auto;
+@media only screen and (max-width: 992px) {
+    .accordion-container {
+        width: $accordion-width-medium;
     }
+    
     // Core values 
-    .core-values-section{
-        .section{
-            .row{
+    .core-values-section {
+        .section {
+            .row {
                 margin: 0;
-                .col{
+
+                .col {
                     flex: 100%;
                     max-width: 100%;
                 }
             }
-
         }
     }
-
 }
 
-@media only screen and (max-width:768px){
-
-    .accordion-container{
-        position: relative;
-        width: 100%;
-        margin: auto;
+@media only screen and (max-width: 768px) {
+    .accordion-container {
+        width: $accordion-width-small;
     }
-
 }

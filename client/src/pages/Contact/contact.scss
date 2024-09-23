@@ -1,87 +1,90 @@
-/* contact.scss */
+// contact.scss
 
-/*Options Contact */
+// Variables
+$primary-bg-color: #FECD3C;
+$secondary-bg-color: #040402; // Example for potential secondary color
+$font-weight-light: 300;
+$font-size-large: 1.4rem;
+$margin-top-standard: 50px;
+$padding-standard: 18px 30px;
 
+// Options Contact
 .options {
+  width: 50%;
+  margin: auto;
+  margin-top: $margin-top-standard;
+  .link{
+    text-decoration: none;
+    color: #000;
+  }
 
+  button {
+    width: 100%;
+    margin-top: 16px;
+    background-color: $primary-bg-color;
+    padding: $padding-standard;
+    font-weight: $font-weight-light;
+    border: none;
+    font-size: $font-size-large;
+  }
+}
 
-    width: 50%;
+.contact-form {
+  .options {
+    .row {
+      display: flex;
+      flex-wrap: wrap;
+
+      .col {
+        flex: 1;
+        margin: 10px;
+      }
+    }
+  }
+}
+
+/* Media Queries */
+@media only screen and (max-width: 1400px) {
+  .contact-form {
+    .options {
+      width: 80%;
+    }
+  }
+}
+
+@media only screen and (max-width: 1200px) {
+  .options {
+    width: 70%;
     margin: auto;
-    margin-top: 50px;
+  }
 
-
-
-   
-    button {
-        width: 100%;
-        margin-top: 16px;
-        background-color: #FECD3C;;
-        padding: 18px 30px;
-        font-weight: 300;
-        border: none;
-        font-size: 1.4rem;
+  .contact-form {
+    .options {
+      width: 100%;
     }
+  }
 }
-.contact-form{
-    .options{
-        .row {
-            display: flex;
-            flex-wrap: wrap;
-    
-            .col {
-                flex: 1;
-                margin: 10px;
-            }
+
+@media only screen and (max-width: 992px) {
+  .options {
+    width: 80%;
+    margin: auto;
+  }
+}
+
+@media only screen and (max-width: 768px) {
+  .options {
+    width: 100%;
+  }
+
+  .contact-form {
+    .options {
+      .row {
+        .col {
+          flex: 100%;
+          max-width: 100%;
         }
+      }
     }
-}
-
-
-/* Media queries */
-@media only screen and (max-width:1400px){
-    .contact-form{
-        .options{
-            width: 80%;
-        }
-    }
-
-}
-
-@media only screen and (max-width:1200px){
-    .options{
-        width:70%;
-        margin: auto;
-    }
-    .contact-form{
-        .options{
-            width: 100%;
-        }
-    }
-}
-
-@media only screen and (max-width:992px){
-    .options{
-        width:80%;
-        margin: auto;
-    }
-}
-
-@media only screen and (max-width:768px){
-    .options{
-        width:100%;
-    }
-    
-
-    .contact-form{
-        .options{
-            .row {
-
-                .col {
-                    flex: 100%;
-                    max-width: 100%;
-                }
-            }
-
-        }
-    }
+  }
 }

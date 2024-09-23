@@ -7,8 +7,6 @@ import LazyLoad from "react-lazyload";
 /* Routing */
 import { Link } from "react-router-dom";
 
-/* Images */
-import Logo from '../../assets/images/Logo-black.webp';
 
 /* Font Awesomes Icons */
 import { faLinkedin, faSquareInstagram } from "@fortawesome/free-brands-svg-icons";
@@ -31,7 +29,7 @@ const Footer = () => {
                     
 
 
-                    <h1>As your partner, we treat your website like it is our own</h1>
+                    <h1 className="display-2">As your partner, we treat your website like it is our own</h1>
                     <p>
                         Let’s find out if we’re a good fit for each other.
                     </p>

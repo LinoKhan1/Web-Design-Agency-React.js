@@ -27,14 +27,11 @@ import Footer from "../../components/layout/Footer.jsx";
 import ServiceComponent from "../../components/specific/ServiceComponent.jsx";
 import AuthorInfoComponent from "../../components/specific/AuthorInfoComponent.jsx";
 import ResultComponent from "../../components/specific/ResultComponent.jsx";
-
+import Posts from "../../components/specific/Posts.jsx";
 // Images
 import Profile_img_2 from '../../assets/images/testimonial_img2.webp';
 import Profile_img_3 from '../../assets/images/testimonial_img3.webp';
 import Profile_img_4 from '../../assets/images/testimonial_img4.webp';
-import BlogImage from '../../assets/images/service-img5.png';
-
-
 
 
 /* Home Page Component */
@@ -44,70 +41,12 @@ const getFirstSentence = (text) => {
   return match ? match[0] : text;
 };
 
-const Post = (props) => (
-
-  <div className="col">
-    <div className="blog">
-
-      <div className="img">
-        <LazyLoad height={200}>
-          <img className="img-fluid" src={BlogImage} alt="SEO Blog" />
-        </LazyLoad>
-      </div>
-      <div className="blog-preview">
-        <Link to={`/post/${props.post._id}`} className="blog-title">
-          <h2>
-            <b>
-              <div dangerouslySetInnerHTML={{ __html: props.post.title }} />
-
-            </b>
-
-          </h2>
-        </Link>
-        <Link to={`/post/${props.post._id}`}>
-          Read more
-        </Link>
-      </div>
-
-    </div>
-  </div>
 
 
-);
 const Home = () => {
-
-  const [posts, setPosts] = useState([]);
-
-  useEffect(() => {
-    AOS.init();
-
-  }, [])
   const apiUrl = import.meta.env.VITE_API_BASE_URL;
-  useEffect(() => {
-    async function getPosts() {
-      const response = await fetch(`${apiUrl}/post`);
-      if (!response.ok) {
-        const message = `An error occurred: ${response.statusText}`;
-        console.error(message);
-        return;
-      }
-      const posts = await response.json();
-      setPosts(posts);
-    }
-    getPosts();
-  }, []);
 
-  // This method will map out the posts in a div layout
-  function postList() {
-    return posts.map((post) => {
-      return (
-        <Post
-          post={post}
-          key={post._id}
-        />
-      );
-    });
-  }
+  
   return (
 
     <div className="home-content">
@@ -124,9 +63,10 @@ const Home = () => {
               <div className="col-lg-7">
                 <div className="hero-text">
                   <h1 className="display-1">
-                    Intelligence. Transparency. Reliability.
-                  </h1>                  
-                  <p>Results-driven web design, custom development, SEO, brand and identity design.</p>
+                    Empowering Your Digital Success.
+                  </h1>
+                  <p>Innovative web development and design solutions for businesses of all sizes.</p>
+
                   <span>
                     <Link to="/get-proposal">
                       <button className="btn-primary">
@@ -199,12 +139,10 @@ const Home = () => {
         <div className="resources">
           <div className="section">
             <div className="title">
-              <h1>Helpful resources</h1>
+              <h1 className="display-1">Discover Our Latest Insights</h1>
             </div>
-            <div className="row">
-              {postList()}
+            <Posts apiUrl={apiUrl} />
 
-            </div>
 
           </div>
         </div>
@@ -215,7 +153,7 @@ const Home = () => {
           <div className="section">
             <div className="row">
               <div className="title">
-                <h1 className="text-center">Frequently asked questions</h1>
+                <h1 className="text-center display-1">Frequently asked questions</h1>
               </div>
               <AccordionComponent />
             </div>
@@ -226,7 +164,7 @@ const Home = () => {
 
       {/* Footer */}
       <Footer />
-    </div>
+    </div >
   );
 };
 

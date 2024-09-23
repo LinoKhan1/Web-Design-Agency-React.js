@@ -1,202 +1,135 @@
-/* Global Styles */
+/* Global Variables */
+$font-primary: "PPTelegraf-Regular";
+$font-secondary: 'ES-Klarheit Regular';
+$color-primary: #FECD3C;
+$color-secondary: #fff;
+$color-text: #000;
+$color-background: #f6f7fa;
+$font-size-large: 4rem;
+$font-size-medium: 3rem;
+$font-size-small: 2.7rem;
+$font-size-heading: 1.4rem;
+$font-weight-light: 300;
+$padding-large: 100px;
+$padding-medium: 50px;
+$padding-small: 30px;
+$margin-large: 24px;
 
+/* Global Styles */
 @import url(./font.css);
 
-/* Define global styles here */
-
+/* Body and HTML */
 body,
 html {
-
-    font-family: "PPTelegraf-Regular";
+    font-family: $font-primary;
     margin: 0;
     padding: 0;
     scroll-behavior: smooth;
-
 }
 
-/* Section*/
+/* Section */
 .section {
     position: relative;
-    padding-top: 75px;
-    padding-bottom: 75px;
-    padding-left: 50px;
-    padding-right: 50px;
+    padding: $padding-large $padding-medium; // Consolidated padding
 }
 
 /* Main */
 .main {
     position: relative;
-
 }
 
-/* Typography.scss */
-
+/* Typography */
 h1 {
-   
-
-    font-size: 4rem;
-    margin-top: 24px;
-    margin-bottom: 24px;
-
-    font-family: "PPTelegraf-Regular";
-
-
+    font-size: $font-size-large;
+    margin: $margin-large 0; // Consolidated margin
 }
 
 h2 {
-
-    font-family: 'ES-Klarheit Regular';
+    font-family: $font-secondary;
     font-size: 2rem;
-
 }
 
 h3 {
-    font-family: 'ES-Klarheit Regular';
-    font-size: 1.4rem;
+    font-family: $font-secondary;
+    font-size: $font-size-heading;
 }
 
-span h6 {
-    font-size: 1.4rem;
+p,a {
+    font-size: $font-size-heading;
+    font-weight: $font-weight-light;
+    margin-bottom: $margin-large; // Consolidated margin
 }
-
-p {
-    font-size: 1.4rem;
-    font-weight: 300;
-    margin-top: 24px;
-    margin-bottom: 24px;
-
-}
-
-li {
-
-
-    font-size: 1.4rem;
-    font-weight: 300;
-    color: #0F1825B3;
-
-}
-
-a {
-    font-size: 1.4rem;
+li{
+    font-size: $font-size-heading;
 }
 
 /* Buttons */
-.rocket {
-    position: relative;
-    padding-right: 10px;
+.btn-primary,
+.btn-secondary {
+    padding: 18px 30px;
+    font-weight: $font-weight-light;
+    font-size: $font-size-heading;
+    border: none;
 }
 
-.d-flex .btn-primary {
-    background-color: #FECD3C;
-    padding: 18px 30px;
-    font-weight: 300;
-    border: none;
-    font-size: 1.4rem;
+.btn-primary {
+    background-color: $color-primary;
     margin-right: 10px;
-
 }
 
-span .btn-primary {
-
-    background-color: #FECD3C;
-    padding: 18px 30px;
-    font-weight: 300;
-    border: none;
-    font-size: 1.4rem;
-    margin-right: 10px;
-
-
-}
-
-span .btn-secondary {
-
-    background-color: #fff;
-    font-weight: 300;
-    padding: 18px 30px;
-    border: none;
-    font-size: 1.4rem;
+.btn-secondary {
+    background-color: $color-secondary;
     color: #040402;
     margin-left: 10px;
-
 }
 
 /* Stars */
-
-
-
 .star {
-    color: #FECD3C;
-    position: relative;
+    color: $color-primary;
     padding-right: 4px;
 }
 
 /* Forms */
 .Contact-content {
-
     form {
-        background-color: #f6f7fa;
-        padding: 50px;
+        background-color: $color-background;
+        padding: $padding-medium;
 
         label {
-            font-size: 1.4rem;
-            font-weight: 300;
-            margin-top: 16px;
-            margin-bottom: 16px;
+            font-size: $font-size-heading;
+            margin: 16px 0; // Consolidated margin
         }
 
         input[type=text],
-        input[type=email] {
-            background-color: #f6f7fa;
-
-            font-size: 1.4rem;
-            width: 100%;
+        input[type=email],
+        textarea {
+            background-color: $color-background;
+            font-size: $font-size-heading;
             padding-bottom: 24px;
-            font-weight: 300;
-            margin-top: 16px;
-            margin-bottom: 16px;
+            margin: 16px 0; // Consolidated margin
             border: none;
             border-bottom: 1px solid grey;
         }
 
-        input[type=button] {
-            background-color: #040402;
-
+        input[type=button],
+        input[type=submit] {
+            width: 100%;
             padding: 10px 30px;
-            margin-bottom: 24px;
+            font-size: $font-size-heading;
+            font-weight: $font-weight-light;
             border: none;
-            font-size: 1.4rem;
-            font-weight: 300;
-            color: #fff;
+            margin-bottom: 24px;
+        }
+
+        input[type=submit] {
+            background-color: $color-primary;
+            color: #040402;
         }
 
         span {
             font-size: 1.2rem;
-            font-weight: 300;
-        }
-
-        input[type=submit] {
-            width: 100%;
-            margin-top: 24px;
-            background-color: #FECD3C;;
-            padding: 18px 30px;
-            font-weight: 300;
-            border: none;
-            font-size: 1.4rem;
-            color: #040402;
-        }
-
-        textarea {
-            background-color: #f6f7fa;
-
-            font-size: 1.2rem;
-            font-weight: 300;
-            padding-bottom: 24px;
-            border: none;
-            border-bottom: 1px solid grey;
-
         }
     }
-
 }
 
 /* Author Info */
@@ -208,130 +141,63 @@ span .btn-secondary {
 
     .author-image {
         width: 50px;
-        /* Adjust the size as needed */
         height: 50px;
-        /* Ensure the height is the same as the width for a perfect circle */
         border-radius: 50%;
-        /* Makes the image circular */
         margin-right: 10px;
-        /* Space between image and text */
     }
 
     .author-name {
         margin: 0;
-        font-size: 1.4rem;
-        /* Adjust the font size as needed */
+        font-size: $font-size-heading;
     }
 }
 
-/* Media queries */
-
-/* Medium devices (landscape tablets, 768px and up) */
+/* Media Queries */
 @media only screen and (max-width: 768px) {
-
-    /* Section */
     .section {
-        position: relative;
-        padding-left: 30px;
-        padding-right: 30px;
-        padding-top: 50px;
-        padding-bottom: 50px;
+        padding: $padding-medium $padding-small; // Consolidated padding
     }
 
-    /* Typography */
-
     h1 {
-        font-size: 3rem;
-
+        font-size: $font-size-medium;
     }
 
     h2 {
-
         font-size: 1.8rem;
-
+    }
+    .btn-primary {
+        background-color: $color-primary;
+        margin-right: 10px;
+    }
+    
+    .btn-secondary {
+        background-color: $color-secondary;
+        color: #040402;
+        margin-left: 10px;
     }
 
     .Contact-content {
         form {
             padding: 25px;
-
-            input[type=text],
-            input[type=email],
-            textarea {
-                margin-top: 16px;
-            }
         }
     }
-
 }
 
-/* Small devices (portrait tablets and large phones, 600px and up) */
 @media only screen and (max-width: 600px) {
-
-    /* Section */
     .section {
-        position: relative;
-        padding-left: 25px;
-        padding-right: 25px;
+        padding: $padding-small; // Simplified padding
     }
-
-    /* Typography */
 
     h1 {
-        font-size: 3rem;
-
+        font-size: $font-size-small;
     }
 
-    h2 {
-
-        font-size: 1.8rem;
-
-    }
-
-}
-
-/* Extra small devices (phones, 600px and down) */
-@media only screen and (max-width: 600px) {
-
-    /* Section */
-    .section {
-        position: relative;
-        padding-left: 25px;
-        padding-right: 25px;
-    }
-
-    /* Typography */
-
-    h1 {
-        font-size: 2.7rem;
-
-    }
-
-    h2 {
-
-        font-size: 1.8rem;
-
-    }
-
-    /* Buttons */
-    span .btn-primary {
-        width: 100%;
-        position: relative;
-        margin-right: 0px;
+    
+    .btn-primary,
+    .btn-secondary {
+        width: 100%; // Applied to both
         margin-bottom: 16px;
+        margin-left: 0;
+        margin-right: 0;
     }
-
-    span .btn-secondary {
-        width: 100%;
-        position: relative;
-        margin-left: 0px;
-        background-color: #fff;
-        color: #040402;
-    }
-
-
-
-
-
-
 }

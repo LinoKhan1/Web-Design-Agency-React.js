@@ -29,7 +29,7 @@ const DifferentiatorComponent = () => {
 
         <div className="scroller-container" >
             <div className="scroller-header">
-                <h1>
+                <h1 className="display-1">
                     Our Differentiators
                 </h1>
                 <div className="scroller-buttons">

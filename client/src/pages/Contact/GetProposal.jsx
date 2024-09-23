@@ -44,9 +44,10 @@ const Proposal = () => {
             <div className="main contact-form">
                 <div className="options">
                     <div className="section">
-                        <Link to="/"> <LazyLoad height={200}>
-                            <img src={Logo} alt="Logo of Linokhan" />
-                        </LazyLoad></Link>
+                        <Link className="link" to="/">
+                            <h1>LinoKhan</h1>
+
+                        </Link>
                         <h1 className="display-1">Get a proposal</h1>
                         <p>
                             We will be in touch to book a discovery call shortly after you submit the form below 😃.
@@ -87,7 +88,7 @@ const Proposal = () => {
 
                             </div>
                             <div className="row">
-                               
+
                                 <p>Project Summary</p>
                                 <p>Please provide a summary of your project, detailing how we can assist your business. Include any specific areas where you need support, such as development, implementation, or other services.</p>
                                 <textarea name="message" id="message" placeholder="i.e. page count, functionality, design preferences, timeline, etc..."></textarea>

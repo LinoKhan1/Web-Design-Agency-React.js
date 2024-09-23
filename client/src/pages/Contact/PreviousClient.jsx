@@ -43,10 +43,9 @@ const Client = () => {
             <div className="main contact-form">
                 <div className="options">
                     <div className="section">
-                        <Link to="/">
-                            <LazyLoad height={200}>
-                                <img src={Logo} alt="Logo of Linokhan" />
-                            </LazyLoad>
+                        <Link className="link" to="/">
+                            <h1>LinoKhan</h1>
+
                         </Link>
                         <h1 className="display-1">Get In Touch</h1>
                         <p>

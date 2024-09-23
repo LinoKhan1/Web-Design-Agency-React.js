@@ -1,56 +1,49 @@
-// React
-import React, { useEffect } from 'react';
-
-// Styles & CSS
-import './component.scss';
-
-// Data AOS
-import AOS from "aos";
-import 'aos/dist/aos.css';
-
-const coreValues = [
-    { title: 'Integrity', description: 'We uphold the highest standards of integrity in all of our actions.' },
-    { title: 'Customer Commitment', description: 'We develop relationships that make a positive difference in our clients’ lives.' },
-    { title: 'Quality', description: 'We provide outstanding service that, together, deliver premium value to our clients.' },
-    { title: 'Teamwork', description: 'We work together, across boundaries, to meet the needs of our customers and to help the company win.' },
-    { title: 'Respect for People', description: 'We value our people, encourage their development and reward their performance.' },
-    { title: 'Detail Oriented', description: 'Attention to detail is paramount in our approach. We meticulously plan and execute every aspect of our projects, ensuring precision and accuracy.' },
-    { title: 'A Will to Win', description: 'We exhibit a strong will to win in the marketplace and in every aspect of our business.' },
-    { title: 'Personal Accountability', description: 'We are personally accountable for delivering on our commitments.' }
-];
+// CoreValuesComponent.jsx
+import React from 'react';
 
 const CoreValuesComponent = () => {
-    useEffect(() => {
-        AOS.init();
-    }, []);
+  const coreValues = [
+    {
+      icon: "fa-solid fa-pen-ruler",
+      title: "Integrity",
+      description: "We prioritize transparency and honesty in everything we do, ensuring every project is built on trust and clear communication.",
+    },
+    {
+      icon: "fa-solid fa-brain",
+      title: "Innovation",
+      description: "Our team constantly pushes the boundaries of web design and development, creating cutting-edge solutions tailored to your needs.",
+    },
+    {
+      icon: "fa-solid fa-users",
+      title: "Collaboration",
+      description: "We work closely with you to bring your vision to life, ensuring that every solution reflects your brand’s values and goals.",
+    },
+    {
+      icon: "fa-solid fa-chart-line",
+      title: "Results-Driven",
+      description: "Our focus is on delivering measurable results that help your business grow, with a commitment to continuous improvement.",
+    },
+  ];
 
-    return (
-        /* Core Values Component */
-        <div className="core-values-section">
-            <section className="section">
-                <div className="row">
-                    <div className="col title-column">
-                        <h1>Core Values</h1>
-                        
-                    </div>
-                    <div className="col values-column">
-                        <div className="values-list">
-                            {coreValues.map((value, index) => (
-                                <div key={index} className="value-item">
-                                    <div className="value-icon">
-                                    <i className="fa-solid fa-pen-ruler"></i>                                    </div>
-                                    <div className="value-text">
-                                        <h2>{value.title}</h2>
-                                        <p>{value.description}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
+  return (
+    <div className="core-values-section">
+      <section className="section">
+        <div className="title">
+          <h1 className="display-1">Built on Innovation and Collaboration</h1>
+          <p>We believe in a client-first approach, combining creativity and technology to craft solutions that meet your business goals.</p>
         </div>
-    );
+        <div className="row">
+          {coreValues.map((value, index) => (
+            <div key={index} className="col-lg-5">
+              <i className={value.icon}></i>
+              <h2>{value.title}</h2>
+              <p>{value.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+    </div>
+  );
 };
 
 export default CoreValuesComponent;

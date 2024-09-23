@@ -17,8 +17,7 @@ import 'aos/dist/aos.css';
 import BlogImage from '../../assets/images/Image.webp';
 
 
-// Component 
-import Footer from '../../components/layout/Footer';
+
 const Blogs = () =>{
 
     return(
@@ -78,7 +77,6 @@ const Blogs = () =>{
                     </div>
                 </div>
             </div>
-            <Footer />
 
         </div>
 
