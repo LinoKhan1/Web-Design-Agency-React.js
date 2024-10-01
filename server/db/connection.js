@@ -4,11 +4,7 @@
  * It exports a function to connect to MongoDB and the database object for use in other parts of the application.
  */
 
-// Import dotenv to load environment variables
-import dotenv from 'dotenv';
 
-// Load environment variables from the .env file
-dotenv.config();
 
 import { MongoClient, ServerApiVersion } from "mongodb";
 
