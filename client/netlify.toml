@@ -1,11 +1,12 @@
 [build]
-  command = "npm run build"                     # Command to build your frontend
-  publish = "dist"                              # Directory to publish your built frontend
+  command = "npm install && npm run build"  # Command to install and build your app
+  publish = "dist"                          # Directory to publish your built frontend
+  node_version = "20.16.0"                  # Specify your Node.js version here
 
 [functions]
-  directory = "../server/netlify/functions"    # Path to your Netlify functions, adjusted for the client directory
+  directory = "../server/netlify/functions" # Path to your Netlify functions
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/:splat"            # Redirects API requests to Netlify functions
+  to = "/.netlify/functions/:splat"
   status = 200
