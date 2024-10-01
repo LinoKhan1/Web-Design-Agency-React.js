@@ -4,10 +4,23 @@
  * It exports a function to connect to MongoDB and the database object for use in other parts of the application.
  */
 
+// Import dotenv to load environment variables
+import dotenv from 'dotenv';
+
+// Load environment variables from the .env file
+dotenv.config();
+
 import { MongoClient, ServerApiVersion } from "mongodb";
 
 // MongoDB connection URI from environment variables
 const uri = process.env.ATLAS_URI || "";
+
+// Log the connection string for debugging (make sure not to expose sensitive info in production)
+if (!uri) {
+    console.error("MongoDB connection string (ATLAS_URI) is not defined.");
+} else {
+    console.log("MongoDB URI:", uri); // Log the URI to check if it's defined
+}
 
 // Create a new MongoClient instance with the specified URI and server API options
 const client = new MongoClient(uri, {

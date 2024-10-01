@@ -1,32 +1,62 @@
 // server/netlify/functions/post.js
 
-import db, { connectToMongoDB } from '../../db/connection.js'; // Adjust the path accordingly
+import db, { connectToMongoDB } from '../../db/connection.js';
 import { ObjectId } from 'mongodb';
 
 export const handler = async (event) => {
     await connectToMongoDB(); // Connect to MongoDB
 
+    const headers = {
+        'Access-Control-Allow-Origin': '*', // Allow requests from any origin
+        'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE', // Allowed methods
+        'Access-Control-Allow-Headers': 'Content-Type', // Allowed headers
+    };
+
+    // Handle preflight OPTIONS request
+    if (event.httpMethod === 'OPTIONS') {
+        return {
+            statusCode: 200,
+            headers,
+        };
+    }
+
     switch (event.httpMethod) {
         case 'GET':
             if (event.path.endsWith('/')) {
                 // GET /post
-                return await getAllPosts();
+                return {
+                    ...await getAllPosts(),
+                    headers,
+                };
             } else {
                 // GET /post/:id
                 const id = event.path.split('/').pop();
-                return await getPostById(id);
+                return {
+                    ...await getPostById(id),
+                    headers,
+                };
             }
         case 'POST':
-            return await createPost(JSON.parse(event.body));
+            return {
+                ...await createPost(JSON.parse(event.body)),
+                headers,
+            };
         case 'PATCH':
             const patchId = event.path.split('/').pop();
-            return await updatePost(patchId, JSON.parse(event.body));
+            return {
+                ...await updatePost(patchId, JSON.parse(event.body)),
+                headers,
+            };
         case 'DELETE':
             const deleteId = event.path.split('/').pop();
-            return await deletePost(deleteId);
+            return {
+                ...await deletePost(deleteId),
+                headers,
+            };
         default:
             return {
                 statusCode: 405,
+                headers,
                 body: JSON.stringify({ message: 'Method Not Allowed' }),
             };
     }
