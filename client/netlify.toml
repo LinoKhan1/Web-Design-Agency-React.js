@@ -1,11 +1,11 @@
 [build]
-  command = "npm run build"
-  publish = "dist"  # Adjust this based on where your build output goes
+  command = "npm run build"                     # Command to build your frontend
+  publish = "dist"                              # Directory to publish your built frontend
 
 [functions]
-  directory = "../server/functions"  # Adjust the path to your serverless functions
+  directory = "../server/netlify/functions"    # Path to your Netlify functions, adjusted for the client directory
 
 [[redirects]]
   from = "/api/*"
-  to = "/.netlify/functions/:splat"
+  to = "/.netlify/functions/:splat"            # Redirects API requests to Netlify functions
   status = 200
