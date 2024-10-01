@@ -1,181 +1,89 @@
-// server/netlify/functions/post.js
+// server/netlify/functions/posts.js
 
-import db, { connectToMongoDB } from '../../db/connection.js';
-import { ObjectId } from 'mongodb';
+import db from "../../db/connection.js"; // Adjust the import path as necessary
+import { ObjectId } from "mongodb";
 
-export const handler = async (event) => {
-    await connectToMongoDB(); // Connect to MongoDB
+export async function handler(event) {
+    const method = event.httpMethod;
+    const pathSegments = event.path.split('/').filter(Boolean);
+    const id = pathSegments[pathSegments.length - 1]; // Get the last segment for ID if present
 
-    const headers = {
-        'Access-Control-Allow-Origin': '*', // Allow requests from any origin
-        'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE', // Allowed methods
-        'Access-Control-Allow-Headers': 'Content-Type', // Allowed headers
-    };
+    let response;
 
-    // Handle preflight OPTIONS request
-    if (event.httpMethod === 'OPTIONS') {
-        return {
-            statusCode: 200,
-            headers,
-        };
-    }
-
-    switch (event.httpMethod) {
-        case 'GET':
-            if (event.path.endsWith('/')) {
-                // GET /post
-                return {
-                    ...await getAllPosts(),
-                    headers,
-                };
+    try {
+        if (method === 'GET') {
+            if (id) {
+                // Retrieve a single post by ID
+                const post = await db.collection('posts').findOne({ _id: new ObjectId(id) });
+                if (post) {
+                    response = {
+                        statusCode: 200,
+                        body: JSON.stringify(post),
+                    };
+                } else {
+                    response = {
+                        statusCode: 404,
+                        body: JSON.stringify({ message: 'Post not found' }),
+                    };
+                }
             } else {
-                // GET /post/:id
-                const id = event.path.split('/').pop();
-                return {
-                    ...await getPostById(id),
-                    headers,
+                // Retrieve all posts
+                const posts = await db.collection('posts').find({}).toArray();
+                response = {
+                    statusCode: 200,
+                    body: JSON.stringify(posts),
                 };
             }
-        case 'POST':
-            return {
-                ...await createPost(JSON.parse(event.body)),
-                headers,
+        } else if (method === 'POST') {
+            const newPost = JSON.parse(event.body);
+            const result = await db.collection('posts').insertOne(newPost);
+            response = {
+                statusCode: 201,
+                body: JSON.stringify({ _id: result.insertedId, ...newPost }),
             };
-        case 'PATCH':
-            const patchId = event.path.split('/').pop();
-            return {
-                ...await updatePost(patchId, JSON.parse(event.body)),
-                headers,
-            };
-        case 'DELETE':
-            const deleteId = event.path.split('/').pop();
-            return {
-                ...await deletePost(deleteId),
-                headers,
-            };
-        default:
-            return {
+        } else if (method === 'PATCH' && id) {
+            const updates = JSON.parse(event.body);
+            const result = await db.collection('posts').updateOne(
+                { _id: new ObjectId(id) },
+                { $set: updates }
+            );
+            if (result.matchedCount === 1) {
+                response = {
+                    statusCode: 200,
+                    body: JSON.stringify({ message: 'Post updated' }),
+                };
+            } else {
+                response = {
+                    statusCode: 404,
+                    body: JSON.stringify({ message: 'Post not found' }),
+                };
+            }
+        } else if (method === 'DELETE' && id) {
+            const result = await db.collection('posts').deleteOne({ _id: new ObjectId(id) });
+            if (result.deletedCount === 1) {
+                response = {
+                    statusCode: 200,
+                    body: JSON.stringify({ message: 'Post deleted' }),
+                };
+            } else {
+                response = {
+                    statusCode: 404,
+                    body: JSON.stringify({ message: 'Post not found' }),
+                };
+            }
+        } else {
+            response = {
                 statusCode: 405,
-                headers,
-                body: JSON.stringify({ message: 'Method Not Allowed' }),
-            };
-    }
-};
-
-const getAllPosts = async () => {
-    try {
-        const collection = db.collection('posts');
-        const results = await collection.find({}).toArray();
-        return {
-            statusCode: 200,
-            body: JSON.stringify(results),
-        };
-    } catch (err) {
-        console.error(err);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Error fetching posts' }),
-        };
-    }
-};
-
-const getPostById = async (id) => {
-    try {
-        const collection = db.collection('posts');
-        const result = await collection.findOne({ _id: new ObjectId(id) });
-
-        if (!result) {
-            return {
-                statusCode: 404,
-                body: JSON.stringify({ error: 'Post not found' }),
+                body: JSON.stringify({ message: 'Method not allowed' }),
             };
         }
-        return {
-            statusCode: 200,
-            body: JSON.stringify(result),
-        };
-    } catch (err) {
-        console.error(err);
-        return {
+    } catch (error) {
+        console.error(error);
+        response = {
             statusCode: 500,
-            body: JSON.stringify({ error: 'Error fetching post' }),
+            body: JSON.stringify({ message: 'Internal Server Error' }),
         };
     }
-};
 
-const createPost = async (data) => {
-    try {
-        const newDocument = {
-            title: data.title,
-            content: data.content,
-            author: data.author,
-        };
-        const result = await db.collection('posts').insertOne(newDocument);
-        const createdPost = {
-            _id: result.insertedId,
-            title: newDocument.title,
-            content: newDocument.content,
-            author: newDocument.author,
-        };
-        return {
-            statusCode: 201,
-            body: JSON.stringify(createdPost),
-        };
-    } catch (err) {
-        console.error(err);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Error adding post' }),
-        };
-    }
-};
-
-const updatePost = async (id, data) => {
-    try {
-        const query = { _id: new ObjectId(id) };
-        const updates = { $set: data };
-        const collection = db.collection('posts');
-        const result = await collection.updateOne(query, updates);
-        if (result.matchedCount === 0) {
-            return {
-                statusCode: 404,
-                body: JSON.stringify({ error: 'Post not found' }),
-            };
-        }
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ message: 'Post updated successfully' }),
-        };
-    } catch (err) {
-        console.error(err);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Error updating post' }),
-        };
-    }
-};
-
-const deletePost = async (id) => {
-    try {
-        const query = { _id: new ObjectId(id) };
-        const collection = db.collection('posts');
-        const result = await collection.deleteOne(query);
-
-        if (result.deletedCount === 0) {
-            return {
-                statusCode: 404,
-                body: JSON.stringify({ error: 'Post not found' }),
-            };
-        }
-        return {
-            statusCode: 200,
-            body: JSON.stringify({ message: 'Post deleted successfully' }),
-        };
-    } catch (err) {
-        console.error(err);
-        return {
-            statusCode: 500,
-            body: JSON.stringify({ error: 'Error deleting post' }),
-        };
-    }
-};
+    return response;
+}
