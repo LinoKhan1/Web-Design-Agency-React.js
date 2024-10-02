@@ -1,5 +1,3 @@
-// server/netlify/functions/posts.js
-
 import db from "../../db/connection.js"; // Adjust the import path as necessary
 import { ObjectId } from "mongodb";
 
@@ -18,11 +16,19 @@ export async function handler(event) {
                 if (post) {
                     response = {
                         statusCode: 200,
+                        headers: {
+                            'Access-Control-Allow-Origin': '*', // Allow any origin
+                            'Access-Control-Allow-Headers': 'Content-Type',
+                            'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+                        },
                         body: JSON.stringify(post),
                     };
                 } else {
                     response = {
                         statusCode: 404,
+                        headers: {
+                            'Access-Control-Allow-Origin': '*',
+                        },
                         body: JSON.stringify({ message: 'Post not found' }),
                     };
                 }
@@ -31,6 +37,11 @@ export async function handler(event) {
                 const posts = await db.collection('posts').find({}).toArray();
                 response = {
                     statusCode: 200,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Headers': 'Content-Type',
+                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+                    },
                     body: JSON.stringify(posts),
                 };
             }
@@ -39,6 +50,11 @@ export async function handler(event) {
             const result = await db.collection('posts').insertOne(newPost);
             response = {
                 statusCode: 201,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+                },
                 body: JSON.stringify({ _id: result.insertedId, ...newPost }),
             };
         } else if (method === 'PATCH' && id) {
@@ -50,11 +66,19 @@ export async function handler(event) {
             if (result.matchedCount === 1) {
                 response = {
                     statusCode: 200,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Headers': 'Content-Type',
+                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+                    },
                     body: JSON.stringify({ message: 'Post updated' }),
                 };
             } else {
                 response = {
                     statusCode: 404,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                    },
                     body: JSON.stringify({ message: 'Post not found' }),
                 };
             }
@@ -63,17 +87,30 @@ export async function handler(event) {
             if (result.deletedCount === 1) {
                 response = {
                     statusCode: 200,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                        'Access-Control-Allow-Headers': 'Content-Type',
+                        'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+                    },
                     body: JSON.stringify({ message: 'Post deleted' }),
                 };
             } else {
                 response = {
                     statusCode: 404,
+                    headers: {
+                        'Access-Control-Allow-Origin': '*',
+                    },
                     body: JSON.stringify({ message: 'Post not found' }),
                 };
             }
         } else {
             response = {
                 statusCode: 405,
+                headers: {
+                    'Access-Control-Allow-Origin': '*',
+                    'Access-Control-Allow-Headers': 'Content-Type',
+                    'Access-Control-Allow-Methods': 'GET, POST, PATCH, DELETE, OPTIONS',
+                },
                 body: JSON.stringify({ message: 'Method not allowed' }),
             };
         }
@@ -81,6 +118,9 @@ export async function handler(event) {
         console.error(error);
         response = {
             statusCode: 500,
+            headers: {
+                'Access-Control-Allow-Origin': '*',
+            },
             body: JSON.stringify({ message: 'Internal Server Error' }),
         };
     }
