@@ -1,6 +1,6 @@
 import db from "../../db/connection.js"; // Adjust the import path as necessary
-import { ObjectId } from "mongodb";
 
+const {ObjectId} = require("mongodb");
 export async function handler(event) {
     const method = event.httpMethod;
     const pathSegments = event.path.split('/').filter(Boolean);

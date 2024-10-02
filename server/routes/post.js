@@ -6,7 +6,8 @@
 
 import express from "express";
 import db from "../db/connection.js";
-const {ObjectId} = require("mongodb");
+import { ObjectId } from "mongodb";
+
 const router = express.Router();
 
 /**
