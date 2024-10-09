@@ -1,0 +1,30 @@
+version: '3.8'
+
+services:
+  server:
+    build:
+      context: ./server
+    image: linokhan/my-server:latest
+    ports:
+      - "5050:5050" # Map container port 5050 to host port 5050
+    env_file:
+      - ./server/config.env
+    depends_on:
+      - mongo
+
+  client:
+    build:
+      context: ./client
+    image: linokhan/my-client:latest
+    ports:
+      - "80:80" # Map container port 80 to host port 80
+
+  mongo:
+    image: mongo:latest
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo-data:/data/db
+
+volumes:
+  mongo-data:
