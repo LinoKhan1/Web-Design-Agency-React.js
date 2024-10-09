@@ -11,6 +11,9 @@ RUN npm install
 # Copy the rest of the application code
 COPY . .
 
+# Copy the config.env file
+COPY config.env ./
+
 # Expose the port your server is listening on
 EXPOSE 5050
 
