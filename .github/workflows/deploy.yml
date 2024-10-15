@@ -34,11 +34,11 @@ jobs:
         env:
           RENDER_API_KEY: ${{ secrets.RENDER_API_KEY }}
         run: |
-          curl -X POST "https://api.render.com/v1/services/srv-cqt5i956l47c73agnuig/deploys" \
+          curl -X POST "https://api.render.com/v1/services/srv-cs38o1bv2p9s738v6670/deploys" \
           -H "Authorization: Bearer $RENDER_API_KEY" \
           -H "Content-Type: application/json" \
           -d '{
-            "serviceId": "srv-cqt5i956l47c73agnuig"
+            "serviceId": "srv-cs38o1bv2p9s738v6670"
           }'
 
       - name: Trigger Client Deployment on Render

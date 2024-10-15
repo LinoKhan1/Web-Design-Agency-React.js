@@ -2,9 +2,6 @@
 import React, { useState } from "react";
 import { Link } from "react-router-dom";
 
-// Images
-import Logo from "../../assets/images/Logo-black.webp";
-
 // Icons 
 import '@fortawesome/fontawesome-free/css/all.css';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';

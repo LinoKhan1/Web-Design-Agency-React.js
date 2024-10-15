@@ -1,9 +1,6 @@
 /* React */
 import React, { useEffect } from "react";
 
-/*React Lazy Load*/
-import LazyLoad from "react-lazyload";
-
 /* Routing */
 import { Link } from "react-router-dom";
 

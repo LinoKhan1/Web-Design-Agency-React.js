@@ -4,12 +4,6 @@ import React from "react";
 /* React Helmet */
 import { Helmet } from "react-helmet";
 
-/* Images */
-import Logo from '../../assets/images/Logo-white.webp';
-
-/* React Lazy Load */
-import LazyLoad from "react-lazyload";
-
 /* Styles and CSS*/
 import './contact.scss';
 

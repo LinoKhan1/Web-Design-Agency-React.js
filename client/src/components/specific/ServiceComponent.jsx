@@ -1,7 +1,6 @@
 // React
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import LazyLoad from 'react-lazyload';
 
 // Images
 import DesignImage from '../../assets/images/service1.webp';
@@ -58,9 +57,7 @@ const ServiceComponent = () => {
       <div className="row">
         <div className="col">
           <div className="service-image">
-            <LazyLoad height={200}>
               <img src={currentImage} alt="Service provided by Linokhan" />
-            </LazyLoad>
           </div>
         </div>
         <div className="col">

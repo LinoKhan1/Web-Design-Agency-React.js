@@ -1,9 +1,6 @@
 // React
 import React from "react";
 
-// React Lazy Load
-import LazyLoad from "react-lazyload";
-
 // React Helmet
 import { Helmet } from "react-helmet";
 

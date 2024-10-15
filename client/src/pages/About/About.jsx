@@ -1,7 +1,5 @@
 /* React */
 import React, { useEffect } from "react";
-// React Lazy Load
-import LazyLoad from "react-lazyload";
 
 /* React Helmet */
 import { Helmet } from "react-helmet";
@@ -72,7 +70,6 @@ const About = () => {
           </div>
         </section>
       </div>
-
       {/* About Section */}
       <div className="about-section" >
         <section className="section">
@@ -89,17 +86,12 @@ const About = () => {
             </div>
             <div className="col-lg-6">
               <div className="row image-row">
-                <LazyLoad height={200}>
-                  <div className="col larger-image">
-                    <img className="img-fluid" src={About_img} alt="Team working on digital projects" />
-                  </div>
-                </LazyLoad>
-                <LazyLoad height={200}>
-                  <div className="col smaller-image">
-                    <img className="img-fluid" src={About_img1} alt="Creative team brainstorming" />
-                  </div>
-                </LazyLoad>
-
+                <div className="col larger-image">
+                  <img className="img-fluid" src={About_img} alt="Team working on digital projects" />
+                </div>
+                <div className="col smaller-image">
+                  <img className="img-fluid" src={About_img1} alt="Creative team brainstorming" />
+                </div>
               </div>
             </div>
           </div>

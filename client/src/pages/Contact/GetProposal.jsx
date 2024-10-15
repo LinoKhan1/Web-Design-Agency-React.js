@@ -6,13 +6,6 @@ import { Helmet } from "react-helmet";
 
 /* React Routing */
 import { Link } from "react-router-dom";
-
-/* Images */
-import Logo from '../../assets/images/Logo-white.webp';
-
-/* Lazy load React */
-import LazyLoad from "react-lazyload";
-
 /* Styles and CSS */
 import './contact.scss';
 

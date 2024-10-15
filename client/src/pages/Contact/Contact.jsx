@@ -1,7 +1,6 @@
 // React
 import React from "react";
 import { Helmet } from "react-helmet";
-import LazyLoad from "react-lazyload";
 import { Link } from "react-router-dom";
 
 // Images

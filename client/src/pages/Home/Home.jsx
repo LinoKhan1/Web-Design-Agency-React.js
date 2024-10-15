@@ -1,7 +1,6 @@
 // React
 import React, { useEffect, useState } from "react";
-// React Lazy Load
-import LazyLoad from "react-lazyload";
+
 // React Helmet
 import { Helmet } from "react-helmet";
 
