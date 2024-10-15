@@ -9,6 +9,9 @@
 import express from "express";
 import cors from "cors";
 import posts from "./routes/post.js"; // Import the posts router
+import dotenv from 'dotenv'; // Import dotenv
+
+dotenv.config(); // Load environment variables from .env file
 
 const PORT = process.env.PORT || 5050; // Define the port to listen on, defaulting to 5050
 const app = express();
